@@ -36,3 +36,4 @@ and
 
 - To support multi layouts in ZMK, you can use the `chosen` thing, like in the corneish zen
 - Currently, with a wireless-only design, you can pull off 9 vik pins + 4 rows + 5 cols = 18 pins exactly on the outer edge of a pro micro. If I wanted to use the inner pins of a nice!nano or the bottom edge pins of a rp2040 community edition controller, then I could add wired support and a 6th column.
+- Need to explore using an SMD-only diode footprint (or staggering the ones for the inner column), and want to use a hotswap footprint with the socket outline to confirm clearances
