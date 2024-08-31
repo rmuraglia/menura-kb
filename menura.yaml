@@ -34,41 +34,41 @@ points:
       columns:
         pinky:
           key.column_net: P5
-          rows.bottom.tags: [matrix_3x5]
+          rows.bottom.tags: [pinky_3x5]
           rows.bird_bottom.skip: true
-          rows.home.tags: [matrix_3x5, matrix_bird]
+          rows.home.tags: [matrix_common]
           rows.bird_top.skip: true
-          rows.top.tags: [matrix_3x5, matrix_bird]
+          rows.top.tags: [matrix_common]
         ring:
           key:
             stagger: ring_stagger
             column_net: P6
-            tags: [matrix_3x5, matrix_bird]
+            tags: [matrix_common]
           rows.bird_bottom.skip: true
           rows.bird_top.skip: true
         middle:
           key:
             stagger: middle_stagger
             column_net: P7
-            tags: [matrix_3x5, matrix_bird]
+            tags: [matrix_common]
           rows.bird_bottom.skip: true
           rows.bird_top.skip: true
         index:
           key:
             stagger: index_stagger
             column_net: P8
-            tags: [matrix_3x5, matrix_bird]
+            tags: [matrix_common]
           rows.bird_bottom.skip: true
           rows.bird_top.skip: true
         inner:
           key:
             stagger: inner_stagger
             column_net: P9
-          rows.bottom.tags: [matrix_3x5]
-          rows.home.tags: [matrix_3x5]
-          rows.top.tags: [matrix_3x5]
-          rows.bird_bottom.tags: [matrix_bird]
-          rows.bird_top.tags: [matrix_bird]
+          rows.bottom.tags: [inner_3x5]
+          rows.home.tags: [inner_3x5]
+          rows.top.tags: [inner_3x5]
+          rows.bird_bottom.tags: [inner_bird]
+          rows.bird_top.tags: [inner_bird]
     thumbs:
       key:
         padding: ky
@@ -117,13 +117,15 @@ outlines:
     - what: rectangle
       size: [kx-0.5, ky-0.5]
       where:
-        - matrix_3x5
+        - matrix_common
+        - /.*_3x5/
         - 3thumb
   keys30:
     - what: rectangle
       size: [kx-0.5, ky-0.5]
       where:
-        - matrix_bird
+        - matrix_common
+        - inner_bird
         - 2thumb
   board:
     - what: polygon
@@ -179,12 +181,43 @@ pcbs:
           reverse: false
           from: "{{column_net}}"
           to: "{{colrow}}"
+      diode1:
+        what: diode
+        where:
+          - matrix_common
+          - matrix_pinky_bottom
+          - 3thumb
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      diode2:
+        what: diode
+        where:
+          - /inner_.*/
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [10, 0]
+          rotate: 90
+      diode3:
+        what: diode
+        where:
+          - 2thumb
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+          rotate: 180
       mcu:
         what: promicro
         params:
           orientation: "down"
         where:
           ref: matrix_pinky_bottom
-          shift: [10, -25]  # maybe more in the positive x direction? depends on how usb tends to be aligned to edge cut
+          shift: [10, -25]
           rotate: 0
 
