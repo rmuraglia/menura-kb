@@ -1,0 +1,190 @@
+units:
+  # mx spacing
+  kx: u
+  ky: u
+  # padding
+  key_padding: 2
+  px: kx + key_padding
+  py: ky + key_padding
+  # stagger
+  ring_stagger: ky/2 + 2.5
+  middle_stagger: 5
+  index_stagger: -5
+  inner_stagger: -2.5
+points:
+  zones:
+    matrix:
+      key:
+        padding: 0.5ky
+        spread: kx
+        tags: [switch]
+      anchor:
+        shift: [100, -100]
+      rows:
+        bottom:
+          row_net: P4
+        bird_bottom:
+          row_net: P3
+        home:
+          row_net: P3
+        bird_top:
+          row_net: P2
+        top:
+          row_net: P2
+      columns:
+        pinky:
+          key.column_net: P5
+          rows.bottom.tags: [matrix_3x5]
+          rows.bird_bottom.skip: true
+          rows.home.tags: [matrix_3x5, matrix_bird]
+          rows.bird_top.skip: true
+          rows.top.tags: [matrix_3x5, matrix_bird]
+        ring:
+          key:
+            stagger: ring_stagger
+            column_net: P6
+            tags: [matrix_3x5, matrix_bird]
+          rows.bird_bottom.skip: true
+          rows.bird_top.skip: true
+        middle:
+          key:
+            stagger: middle_stagger
+            column_net: P7
+            tags: [matrix_3x5, matrix_bird]
+          rows.bird_bottom.skip: true
+          rows.bird_top.skip: true
+        index:
+          key:
+            stagger: index_stagger
+            column_net: P8
+            tags: [matrix_3x5, matrix_bird]
+          rows.bird_bottom.skip: true
+          rows.bird_top.skip: true
+        inner:
+          key:
+            stagger: inner_stagger
+            column_net: P9
+          rows.bottom.tags: [matrix_3x5]
+          rows.home.tags: [matrix_3x5]
+          rows.top.tags: [matrix_3x5]
+          rows.bird_bottom.tags: [matrix_bird]
+          rows.bird_top.tags: [matrix_bird]
+    thumbs:
+      key:
+        padding: ky
+        spread: 0.525kx
+        splay: -5
+        origin: [-0.25kx, -0.5ky]
+        tags: [switch]
+      anchor:
+        ref: matrix_index_bottom
+        shift: [-0.3kx, -1.5ky]
+      rows:
+        cluster:
+          row_net: P10
+      columns:
+        tucky:
+          key:
+            splay: 0
+            column_net: P7
+            tags: [3thumb]
+        midtucky:
+          key:
+            column_net: P8
+            tags: [2thumb]
+            rotate: 180
+        home:
+          key:
+            column_net: P8
+            tags: [3thumb]
+        midreachy:
+          key:
+            column_net: P9
+            tags: [2thumb]
+            rotate: 180
+        reachy:
+          key:
+            column_net: P9
+            tags: [3thumb]
+outlines:
+  all_keys:
+    - what: rectangle
+      where:
+          - /matrix_.*/
+          - /thumbs_.*/
+      size: [kx-0.5, ky-0.5]
+  keys36:
+    - what: rectangle
+      size: [kx-0.5, ky-0.5]
+      where:
+        - matrix_3x5
+        - 3thumb
+  keys30:
+    - what: rectangle
+      size: [kx-0.5, ky-0.5]
+      where:
+        - matrix_bird
+        - 2thumb
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 5
+      points:
+        - ref: matrix_pinky_bottom
+          shift: [-0.7kx, -1.5ky]
+        - ref: matrix_pinky_top
+          shift: [-0.7kx, 0.7ky]
+        - ref: matrix_ring_top
+          shift: [-0.7kx, 0.7ky]
+        - ref: matrix_middle_top
+          shift: [0kx, 0.7ky]
+        - ref: matrix_index_top
+          shift: [0.7kx, 0.7ky]
+        - ref: matrix_inner_top
+          shift: [0.7kx, 0.7ky]
+        - ref: matrix_inner_bottom
+          shift: [0.7kx, -0.7ky]
+        - ref: thumbs_reachy_cluster
+          shift: [0.7kx, 0.7ky]
+        - ref: thumbs_reachy_cluster
+          shift: [0.7kx, -0.7ky]
+        - ref: thumbs_tucky_cluster
+          shift: [-0.7kx, -0.7ky]
+  combo_all:
+    - name: board
+    - operation: subtract
+      name: all_keys
+  combo_36:
+    - name: board
+    - operation: subtract
+      name: keys36
+  combo_30:
+    - name: board
+    - operation: subtract
+      name: keys30
+pcbs:
+  tutorial:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      sw_hotswap:
+        what: mx
+        where:
+          - /matrix_.*/
+          - /thumbs_.*/
+        params:
+          hotswap: true
+          keycaps: true
+          reverse: false
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      mcu:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: matrix_pinky_bottom
+          shift: [10, -25]  # maybe more in the positive x direction? depends on how usb tends to be aligned to edge cut
+          rotate: 0
+
