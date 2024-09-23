@@ -165,7 +165,7 @@ outlines:
     - operation: subtract
       name: keys30
 pcbs:
-  tutorial:
+  menura:
     outlines:
       main:
         outline: board
