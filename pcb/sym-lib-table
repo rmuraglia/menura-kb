@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "_quappo")(type "KiCad")(uri "${KIPRJMOD}/quappo.kicad_sym")(options "")(descr ""))
+  (lib (name "vik")(type "KiCad")(uri "/Users/rmuraglia/git/kicad_footprints/vik/kicad/vik.kicad_sym")(options "")(descr ""))
+)

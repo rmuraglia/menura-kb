@@ -1,16 +1,35 @@
+# TODO the order in which the diodes are placed does not match the ordes the switches are placed. all 3 thumbs, then all 2 thumbs
+# two rows of overlapping thumbs would solve, so would just manually renumbering the thumb diodes
+# or using a different designator
+
 units:
+  # for the key matrix
   # mx spacing
   kx: u
   ky: u
-  # padding
-  key_padding: 2
-  px: kx + key_padding
-  py: ky + key_padding
-  # stagger
+  # stagger and splay
   ring_stagger: ky/2 + 2.5
   middle_stagger: 5
   index_stagger: -5
   inner_stagger: -2.5
+  thumb_splay: -5
+
+  # for other components
+  # nb: positive rotation is clockwise
+  # nb: mcu footprint has the port pointing to the left
+  mcu_x: 33
+  mcu_y: 18
+  m2: 2.2  # m2 screw hole diameter
+  # nb: power switch toggle points to the left
+  pwr_x: 4.1
+  pwr_y: 9.5
+  rst_x: 9
+  rst_y: 3.5
+  jst_x: 8.9
+  jst_y: 8.6
+  vik_x: 11
+  vik_y: 9.1
+
 points:
   zones:
     matrix:
@@ -22,18 +41,12 @@ points:
         shift: [100, -100]
       rows:
         bottom:
-          row_net: P4
         bird_bottom:
-          row_net: P3
         home:
-          row_net: P3
         bird_top:
-          row_net: P2
         top:
-          row_net: P2
       columns:
         pinky:
-          key.column_net: P5
           rows.bottom.tags: [pinky_3x5]
           rows.bird_bottom.skip: true
           rows.home.tags: [matrix_common]
@@ -42,28 +55,24 @@ points:
         ring:
           key:
             stagger: ring_stagger
-            column_net: P6
             tags: [matrix_common]
           rows.bird_bottom.skip: true
           rows.bird_top.skip: true
         middle:
           key:
             stagger: middle_stagger
-            column_net: P7
             tags: [matrix_common]
           rows.bird_bottom.skip: true
           rows.bird_top.skip: true
         index:
           key:
             stagger: index_stagger
-            column_net: P8
             tags: [matrix_common]
           rows.bird_bottom.skip: true
           rows.bird_top.skip: true
         inner:
           key:
             stagger: inner_stagger
-            column_net: P9
           rows.bottom.tags: [inner_3x5]
           rows.home.tags: [inner_3x5]
           rows.top.tags: [inner_3x5]
@@ -73,39 +82,101 @@ points:
       key:
         padding: ky
         spread: 0.525kx
-        splay: -5
+        splay: thumb_splay
         origin: [-0.25kx, -0.5ky]
         tags: [switch]
       anchor:
         ref: matrix_index_bottom
-        shift: [-0.3kx, -1.5ky]
+        shift: [0, -1.5ky]
       rows:
         cluster:
-          row_net: P10
       columns:
         tucky:
           key:
             splay: 0
-            column_net: P7
             tags: [3thumb]
         midtucky:
           key:
-            column_net: P8
             tags: [2thumb]
             rotate: 180
         home:
           key:
-            column_net: P8
             tags: [3thumb]
         midreachy:
           key:
-            column_net: P9
             tags: [2thumb]
             rotate: 180
         reachy:
           key:
-            column_net: P9
             tags: [3thumb]
+    mcu:
+      key:
+        width: mcu_x
+        height: mcu_y
+      anchor:
+        ref: matrix_pinky_bottom
+        shift: [5, -0.5ky - 0.5mcu_y - 0.5]
+    jst:
+      # make it so it always plugs in coming in from the top
+      key:
+        width: jst_x
+        height: jst_y
+        rotate: 180
+      anchor:
+        ref: mcu
+        shift: [0.5mcu_x + 0.5jst_x + 7, 0]
+    pwr:
+      key:
+        width: pwr_x
+        height: pwr_y
+        rotate: 90
+      anchor:
+        ref: jst
+        shift: [2, 8.5]
+    rst:
+      key:
+        width: rst_x
+        height: rst_y
+      anchor:
+        ref: jst
+        shift: [-8.5, 0]
+        rotate: 90
+    vik:
+      key:
+        width: vik_x
+        height: vik_y
+      anchor:
+        ref: thumbs_reachy_cluster
+        shift: [-0.2kx, 0.5ky + 0.5vik_y + 2]
+        rotate: 180.6
+    mount_1:
+      key:
+        width: m2
+        height: m2
+      anchor:
+        ref: matrix_pinky_top
+        shift: [-0.7kx, 0.7ky]
+    mount_2:
+      key:
+        width: m2
+        height: m2
+      anchor:
+        ref: matrix_pinky_top
+        shift: [-0.7kx, 0.7ky]
+    mount_3:
+      key:
+        width: m2
+        height: m2
+      anchor:
+        ref: matrix_pinky_top
+        shift: [-0.7kx, 0.7ky]
+    mount_4:
+      key:
+        width: m2
+        height: m2
+      anchor:
+        ref: matrix_pinky_top
+        shift: [-0.7kx, 0.7ky]
 outlines:
   all_keys:
     - what: rectangle
@@ -127,6 +198,26 @@ outlines:
         - matrix_common
         - inner_bird
         - 2thumb
+  components:
+    - what: rectangle
+      size: [mcu_x, mcu_y]
+      where: mcu
+    - what: rectangle
+      size: [jst_x, jst_y]
+      where: jst
+    - what: rectangle
+      size: [pwr_x, pwr_y]
+      where: pwr
+    - what: rectangle
+      size: [rst_x, rst_y]
+      where: rst
+    - what: rectangle
+      size: [vik_x, vik_y]
+      where: vik
+  mounting_holes:
+    - what: circle
+      radius: m2 / 2
+      where: /mount_.*/
   board:
     - what: polygon
       operation: stack
@@ -153,17 +244,20 @@ outlines:
         - ref: thumbs_tucky_cluster
           shift: [-0.7kx, -0.7ky]
   combo_all:
-    - name: board
-    - operation: subtract
-      name: all_keys
+    - board
+    - ^all_keys
+    - ^components
+    - ^mounting_holes
   combo_36:
-    - name: board
-    - operation: subtract
-      name: keys36
+    - board
+    - ^keys36
+    - ^components
+    - ^mounting_holes
   combo_30:
-    - name: board
-    - operation: subtract
-      name: keys30
+    - board
+    - ^keys30
+    - ^components
+    - ^mounting_holes
 pcbs:
   menura:
     outlines:
@@ -176,48 +270,70 @@ pcbs:
           - /matrix_.*/
           - /thumbs_.*/
         params:
-          hotswap: true
-          keycaps: true
-          reverse: false
-          from: "{{column_net}}"
-          to: "{{colrow}}"
-      diode1:
+          designator: "SW"
+          from: ""
+          to: ""
+      diode_matrix:
         what: diode
-        where:
-          - matrix_common
-          - matrix_pinky_bottom
-          - 3thumb
+        where: /matrix_.*/
         params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
+          from: ""
+          to: ""
         adjust:
-          shift: [0, -5]
-      diode2:
-        what: diode
-        where:
-          - /inner_.*/
-        params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
-        adjust:
-          shift: [10, 0]
+          shift: [-8.6, -1.9]
           rotate: 90
-      diode3:
+      diode_3thumb:
         what: diode
-        where:
-          - 2thumb
+        where: 3thumb
         params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
+          from: ""
+          to: ""
         adjust:
-          shift: [0, -5]
-          rotate: 180
+          shift: [0, -8.2]
+      diode_2thumb:
+        what: diode
+        where: 2thumb
+        params:
+          from: ""
+          to: ""
+        adjust:
+          shift: [0, 8.2]  # "above" footprint
+          rotate: 180  # but actually below
       mcu:
         what: promicro
+        where: mcu
         params:
-          orientation: "down"
-        where:
-          ref: matrix_pinky_bottom
-          shift: [10, -25]
-          rotate: 0
+          designator: "MCU"
+      jst:
+        what: jstph
+        where: jst
+        params:
+          pos: ""
+          neg: ""
+      pwr:
+        what: slider
+        where: pwr
+        params:
+          designator: "PWR"
+          from: ""
+          to: ""
+      rst:
+        what: button
+        where: rst
+        params:
+          designator: "RSW"
+          from: ""
+          to: ""
+      vik:
+        what: pad
+        where: vik
+        params:
+          designator: "VIK"
+          net: ""
+      mounting_holes:
+        what: pad
+        where: /mount_.*/
+        params:
+          designator: "H"
+          net: ""
 

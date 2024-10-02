@@ -13,6 +13,7 @@
 ## Inspiration and references
 
 - Ergogen configs
+    - [nostrum](https://github.com/bennytrouser/nostrum)
     - [trochilidae](https://github.com/jcmkk3/trochilidae/tree/main)
     - [corax](https://github.com/dnlbauer/corax-keyboard/tree/main)
     - [flatfootfox's guide](https://flatfootfox.com/ergogen-introduction/)
