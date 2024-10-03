@@ -203,6 +203,18 @@
 			)
 		)
 	)
+	(pad "" smd rect
+		(at -4.55 0.686)
+		(size 1.8 2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "dd32776b-07a6-490f-a260-1a414ce7f65a")
+	)
+	(pad "" smd rect
+		(at 4.55 0.686)
+		(size 1.8 2)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "ac0050f6-430d-46d0-afc7-4653652e0e29")
+	)
 	(pad "1" smd rect
 		(at -2.75 -2.038)
 		(size 0.28 1.25)
@@ -274,18 +286,6 @@
 		(size 0.28 1.25)
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "9c5ad9f7-41f1-47a5-af74-cfe9c6f2bd63")
-	)
-	(pad "13" smd rect
-		(at 4.55 0.686)
-		(size 1.8 2)
-		(layers "F.Cu" "F.Paste" "F.Mask")
-		(uuid "ac0050f6-430d-46d0-afc7-4653652e0e29")
-	)
-	(pad "14" smd rect
-		(at -4.55 0.686)
-		(size 1.8 2)
-		(layers "F.Cu" "F.Paste" "F.Mask")
-		(uuid "dd32776b-07a6-490f-a260-1a414ce7f65a")
 	)
 	(model "../../kicad/3dmodels/vik-connector-horizontal.stp"
 		(offset

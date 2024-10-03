@@ -1,4 +1,4 @@
-23919580219164012
+23919581764956059
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -96675,7 +96675,7 @@ Connector_vik-keyboard-horizontal
 
 0
 14
-14
+12
 quappo
 Diode_SMD-reversible-corax
 
@@ -96710,7 +96710,7 @@ Switch_power-reversible-kim
 
 0
 14
-6
+3
 quappo
 Switch_power-reversible-klotz
 

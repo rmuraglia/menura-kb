@@ -120,7 +120,7 @@ points:
         rotate: 180
       anchor:
         ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + 7, 0]
+        shift: [0.5mcu_x + 0.5jst_x + 5, 2.5]
     pwr:
       key:
         width: pwr_x
@@ -128,7 +128,7 @@ points:
         rotate: 90
       anchor:
         ref: jst
-        shift: [2, 8.5]
+        shift: [0, 11]
     rst:
       key:
         width: rst_x
