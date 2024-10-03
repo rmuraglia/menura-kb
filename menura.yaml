@@ -1,7 +1,3 @@
-# TODO the order in which the diodes are placed does not match the ordes the switches are placed. all 3 thumbs, then all 2 thumbs
-# two rows of overlapping thumbs would solve, so would just manually renumbering the thumb diodes
-# or using a different designator
-
 units:
   # for the key matrix
   # mx spacing
