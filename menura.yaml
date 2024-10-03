@@ -268,7 +268,14 @@ pcbs:
         what: mx
         where:
           - /matrix_.*/
-          - /thumbs_.*/
+          - 3thumb
+        params:
+          designator: "SW"
+          from: ""
+          to: ""
+      sw_hotswap_2thumb:
+        what: mx
+        where: 2thumb
         params:
           designator: "SW"
           from: ""
@@ -290,6 +297,7 @@ pcbs:
           to: ""
         adjust:
           shift: [0, -8.2]
+          rotate: 180  # point to the right
       diode_2thumb:
         what: diode
         where: 2thumb
@@ -297,8 +305,7 @@ pcbs:
           from: ""
           to: ""
         adjust:
-          shift: [0, 8.2]  # "above" footprint
-          rotate: 180  # but actually below
+          shift: [0, 8.2]  # "above" footprint, but actually below, bc footprint is upside down
       mcu:
         what: promicro
         where: mcu

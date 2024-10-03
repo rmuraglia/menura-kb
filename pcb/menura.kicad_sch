@@ -4028,7 +4028,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "12ec400b-e2dd-46ac-b987-db03b916f909")
-		(property "Reference" "D19"
+		(property "Reference" "D21"
 			(at 154.94 105.41 90)
 			(effects
 				(font
@@ -4099,7 +4099,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "D19")
+					(reference "D21")
 					(unit 1)
 				)
 			)
@@ -4357,7 +4357,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2df49be1-c89b-4e0d-a5da-d3de40a4322e")
-		(property "Reference" "D22"
+		(property "Reference" "D20"
 			(at 179.07 91.44 90)
 			(effects
 				(font
@@ -4428,7 +4428,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "D22")
+					(reference "D20")
 					(unit 1)
 				)
 			)
@@ -4443,7 +4443,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "382764b3-61db-4d84-b0ef-dcdf0e862439")
-		(property "Reference" "SW22"
+		(property "Reference" "SW20"
 			(at 170.18 82.55 0)
 			(effects
 				(font
@@ -4495,7 +4495,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "SW22")
+					(reference "SW20")
 					(unit 1)
 				)
 			)
@@ -4923,7 +4923,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "604538e4-c63a-45b4-8683-250653e0bf5d")
-		(property "Reference" "D20"
+		(property "Reference" "D19"
 			(at 160.02 91.44 90)
 			(effects
 				(font
@@ -4994,7 +4994,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "D20")
+					(reference "D19")
 					(unit 1)
 				)
 			)
@@ -6201,7 +6201,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9992591f-a348-42b9-94fc-e69965bdbc08")
-		(property "Reference" "SW19"
+		(property "Reference" "SW21"
 			(at 146.05 96.52 0)
 			(effects
 				(font
@@ -6253,7 +6253,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "SW19")
+					(reference "SW21")
 					(unit 1)
 				)
 			)
@@ -7291,7 +7291,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c820ad82-1b5e-4b17-9749-02f64721cf10")
-		(property "Reference" "SW20"
+		(property "Reference" "SW19"
 			(at 151.13 82.55 0)
 			(effects
 				(font
@@ -7343,7 +7343,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "SW20")
+					(reference "SW19")
 					(unit 1)
 				)
 			)
@@ -7425,7 +7425,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cbc5faf8-9836-4408-bde9-c764c0f3c5bb")
-		(property "Reference" "D21"
+		(property "Reference" "D22"
 			(at 173.99 105.41 90)
 			(effects
 				(font
@@ -7496,7 +7496,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "D21")
+					(reference "D22")
 					(unit 1)
 				)
 			)
@@ -7935,7 +7935,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "eba5cecb-c891-496c-aef8-da2d945cd7e4")
-		(property "Reference" "SW21"
+		(property "Reference" "SW22"
 			(at 165.1 96.52 0)
 			(effects
 				(font
@@ -7987,7 +7987,7 @@
 		(instances
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "SW21")
+					(reference "SW22")
 					(unit 1)
 				)
 			)
