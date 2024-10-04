@@ -21,13 +21,15 @@ units:
   diode_adj_y: -1.9
   diode_adj_thumb: -8.2
   m2: 2.2  # m2 screw hole diameter
-  pwr_x: 4.1
-  pwr_y: 9.5
+  pwr_x: 5.85
+  pwr_y: 8.8
+  pwr_mcu_y_offset: -0.5mcu_y + 0.5pwr_x - 1.3
   rst_x: 9
   rst_y: 3.5
   jst_x: 8.9
   jst_y: 8.6
-  jst_x_padding: 5
+  jst_x_padding: 10
+  jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y
   vik_x: 11
   vik_y: 9.1
 
@@ -116,15 +118,15 @@ points:
         rotate: 180
       anchor:
         ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + jst_x_padding, 2.5]
+        shift: [0.5mcu_x + 0.5jst_x + jst_x_padding, jst_mcu_y_offset]
     pwr:
       key:
         width: pwr_x
         height: pwr_y
-        rotate: 90
+        rotate: 270
       anchor:
-        ref: jst
-        shift: [0, 11]
+        ref: mcu
+        shift: [0.5mcu_x + 0.5jst_x + jst_x_padding, pwr_mcu_y_offset]
     rst:
       key:
         width: rst_x

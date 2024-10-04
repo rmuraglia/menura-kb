@@ -18,6 +18,7 @@
 	(property "Value" "Val**"
 		(at 0 0 0)
 		(layer "F.SilkS")
+		(hide yes)
 		(uuid "4cd0aa53-da87-435a-99c4-ad0a5974232b")
 		(effects
 			(font
