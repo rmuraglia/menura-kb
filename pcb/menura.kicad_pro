@@ -431,7 +431,10 @@
       "_quappo",
       "quappo"
     ],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "_quappo",
+      "quappo"
+    ]
   },
   "meta": {
     "filename": "menura.kicad_pro",
