@@ -28,10 +28,11 @@ units:
   rst_y: 3.5
   jst_x: 8.9
   jst_y: 8.6
-  jst_x_padding: 10
+  jst_padding: 10
   jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y
   vik_x: 11
   vik_y: 9.1
+  vik_padding: 0
 
 points:
   zones:
@@ -118,7 +119,7 @@ points:
         rotate: 180
       anchor:
         ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + jst_x_padding, jst_mcu_y_offset]
+        shift: [0.5mcu_x + 0.5jst_x + jst_padding, jst_mcu_y_offset]
     pwr:
       key:
         width: pwr_x
@@ -126,7 +127,7 @@ points:
         rotate: 270
       anchor:
         ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + jst_x_padding, pwr_mcu_y_offset]
+        shift: [0.5mcu_x + 0.5jst_x + jst_padding, pwr_mcu_y_offset]
     rst:
       key:
         width: rst_x
@@ -140,9 +141,9 @@ points:
         width: vik_x
         height: vik_y
       anchor:
-        ref: thumbs_reachy_cluster
-        shift: [-0.2kx, 0.5ky + 0.5vik_y + 2]
-        rotate: 180.6
+        ref: thumbs_midreachy_cluster
+        shift: [0, 0.5ky + 0.5vik_y + vik_padding]
+        rotate: 180
     mount_1:
       key:
         width: m2
