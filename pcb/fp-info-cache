@@ -1,4 +1,4 @@
-23948953448445612
+23945497428004828
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -96677,6 +96677,13 @@ Connector_vik-keyboard-horizontal
 14
 12
 quappo
+Connector_vik-keyboard-throughhole
+
+
+0
+12
+12
+quappo
 Diode_SMD-reversible-corax
 
 
@@ -96690,6 +96697,13 @@ R
 0
 6
 2
+quappo
+Logo_vik-small
+
+
+0
+0
+0
 quappo
 MCU_nice-nano
 
@@ -96732,34 +96746,6 @@ Switch_reset-2pin
 0
 2
 2
-quappo
-vik-keyboard-throughole
-
-
-0
-12
-12
-quappo
-vik-logo-large
-
-
-0
-0
-0
-quappo
-vik-logo-medium
-
-
-0
-0
-0
-quappo
-vik-logo-small
-
-
-0
-0
-0
 vik
 vik-keyboard-connector-horizontal
 

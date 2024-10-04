@@ -33,6 +33,8 @@ units:
   vik_x: 11
   vik_y: 9.1
   vik_padding: 0
+  vik_tht_x: 17
+  vik_tht_y: 16
 
 points:
   zones:
@@ -144,6 +146,13 @@ points:
         ref: thumbs_midreachy_cluster
         shift: [0, 0.5ky + 0.5vik_y + vik_padding]
         rotate: 180
+    vik_tht:
+      key:
+        width: vik_tht_x
+        height: vik_tht_y
+      anchor:
+        ref: matrix_ring_bottom
+        shift: [0, -0.5ky - 0.5vik_tht_y]
     mount_1:
       key:
         width: m2
@@ -209,6 +218,9 @@ outlines:
     - what: rectangle
       size: [vik_x, vik_y]
       where: vik
+    - what: rectangle
+      size: [vik_tht_x, vik_tht_y]
+      where: vik_tht
   mounting_holes:
     - what: circle
       radius: m2 / 2
@@ -331,6 +343,12 @@ pcbs:
       vik:
         what: pad
         where: vik
+        params:
+          designator: "VIK"
+          net: ""
+      vik_tht:
+        what: pad
+        where: vik_tht
         params:
           designator: "VIK"
           net: ""
