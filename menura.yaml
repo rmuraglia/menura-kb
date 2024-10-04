@@ -9,20 +9,25 @@ units:
   index_stagger: -5
   inner_stagger: -2.5
   thumb_splay: -5
+  thumb_spread: 0.525kx
+  thumb_drop_offset: -1.25ky
 
   # for other components
-  # nb: positive rotation is clockwise
   # nb: mcu footprint has the port pointing to the left
   mcu_x: 33
   mcu_y: 18
+  mcu_padding: 2
+  diode_adj_x: -8.6
+  diode_adj_y: -1.9
+  diode_adj_thumb: -8.2
   m2: 2.2  # m2 screw hole diameter
-  # nb: power switch toggle points to the left
   pwr_x: 4.1
   pwr_y: 9.5
   rst_x: 9
   rst_y: 3.5
   jst_x: 8.9
   jst_y: 8.6
+  jst_x_padding: 5
   vik_x: 11
   vik_y: 9.1
 
@@ -32,7 +37,6 @@ points:
       key:
         padding: 0.5ky
         spread: kx
-        tags: [switch]
       anchor:
         shift: [100, -100]
       rows:
@@ -77,13 +81,12 @@ points:
     thumbs:
       key:
         padding: ky
-        spread: 0.525kx
+        spread: thumb_spread
         splay: thumb_splay
-        origin: [-0.25kx, -0.5ky]
-        tags: [switch]
+        origin: [-0.5thumb_spread, -0.5ky]
       anchor:
         ref: matrix_index_bottom
-        shift: [0, -1.5ky]
+        shift: [0, thumb_drop_offset]
       rows:
         cluster:
       columns:
@@ -92,35 +95,28 @@ points:
             splay: 0
             tags: [3thumb]
         midtucky:
-          key:
-            tags: [2thumb]
-            rotate: 180
+          key.tags: [2thumb]
         home:
-          key:
-            tags: [3thumb]
+          key.tags: [3thumb]
         midreachy:
-          key:
-            tags: [2thumb]
-            rotate: 180
+          key.tags: [2thumb]
         reachy:
-          key:
-            tags: [3thumb]
+          key.tags: [3thumb]
     mcu:
       key:
         width: mcu_x
         height: mcu_y
       anchor:
         ref: matrix_pinky_bottom
-        shift: [5, -0.5ky - 0.5mcu_y - 0.5]
+        shift: [5, -0.5ky - 0.5mcu_y - mcu_padding]
     jst:
-      # make it so it always plugs in coming in from the top
       key:
         width: jst_x
         height: jst_y
         rotate: 180
       anchor:
         ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + 5, 2.5]
+        shift: [0.5mcu_x + 0.5jst_x + jst_x_padding, 2.5]
     pwr:
       key:
         width: pwr_x
@@ -276,6 +272,7 @@ pcbs:
           designator: "SW"
           from: ""
           to: ""
+        adjust.rotate: 180
       diode_matrix:
         what: diode
         where: /matrix_.*/
@@ -283,7 +280,7 @@ pcbs:
           from: ""
           to: ""
         adjust:
-          shift: [-8.6, -1.9]
+          shift: [diode_adj_x, diode_adj_y]
           rotate: 90
       diode_3thumb:
         what: diode
@@ -292,7 +289,7 @@ pcbs:
           from: ""
           to: ""
         adjust:
-          shift: [0, -8.2]
+          shift: [0, diode_adj_thumb]
           rotate: 180  # point to the right
       diode_2thumb:
         what: diode
@@ -301,7 +298,8 @@ pcbs:
           from: ""
           to: ""
         adjust:
-          shift: [0, 8.2]  # "above" footprint, but actually below, bc footprint is upside down
+          shift: [0, diode_adj_thumb]
+          rotate: 180
       mcu:
         what: promicro
         where: mcu
