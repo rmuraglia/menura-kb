@@ -16,21 +16,24 @@ units:
   # nb: mcu footprint has the port pointing to the left
   mcu_x: 33
   mcu_y: 18
-  mcu_padding: 2
-  diode_adj_x: -8.6
+  mcu_padding: 2  # extra buffer between mcu and nearest switch footprint
+  mcu_adj: 7  # adjustment to align mcu (but not the port) and switch
+  diode_adj_x: -8.6  # diode adjustment in main switch matrix
   diode_adj_y: -1.9
-  diode_adj_thumb: -8.2
+  diode_adj_thumb: -8.2  # diode adjustment in thumb cluster
   m2: 2.2  # m2 screw hole diameter
+  # MSK-12C02 type power switch
   pwr_x: 5.85
   pwr_y: 8.8
-  pwr_mcu_y_offset: -0.5mcu_y + 0.5pwr_x - 2
+  pwr_mcu_y_offset: -0.5mcu_y + 0.5pwr_x - 1.5  # align pads (not physical toggle switch)
+  # generic through hole 2 pin 3x6x4.3mm button/switch e.g. MJTP1243
   rst_x: 9
   rst_y: 3.5
-  rst_pwr_x_offset: 2.5
-  rst_pwr_y_offset: -1
+  rst_pwr_x_offset: 2
+  rst_pwr_y_offset: -2.9
   jst_x: 8.9
   jst_y: 8.6
-  jst_mcu_x_offset: 14
+  jst_mcu_x_offset: 13
   jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y
   vik_x: 11
   vik_y: 9.1
@@ -115,7 +118,7 @@ points:
         height: mcu_y
       anchor:
         ref: matrix_pinky_bottom
-        shift: [5, -0.5ky - 0.5mcu_y - mcu_padding]
+        shift: [mcu_adj, -0.5ky - 0.5mcu_y - mcu_padding]
     jst:
       key:
         width: jst_x
@@ -139,7 +142,6 @@ points:
       anchor:
         ref: pwr
         shift: [rst_pwr_y_offset, -0.5pwr_y - 0.5rst_x - rst_pwr_x_offset]
-        rotate: 90
     vik:
       key:
         width: vik_x
