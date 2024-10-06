@@ -39,7 +39,8 @@ units:
   jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y - mcu_padding
   vik_x: 11
   vik_y: 9.1
-  vik_padding: 0
+  vik_adj_x: 2
+  vik_adj_y: 1
   vik_tht_x: 17
   vik_tht_y: 16
 
@@ -149,9 +150,9 @@ points:
         width: vik_x
         height: vik_y
       anchor:
-        ref: thumbs_midreachy_cluster
-        shift: [0, 0.5ky + 0.5vik_y + vik_padding]
-        rotate: 180
+        ref: matrix_inner_bottom
+        shift: [0.5kx + 0.5vik_x + vik_adj_x, -0.5ky + vik_adj_y]
+        rotate: 135
     vik_tht:
       key:
         width: vik_tht_x
@@ -234,7 +235,7 @@ outlines:
   board:
     - what: polygon
       operation: stack
-      fillet: 0
+      fillet: 2
       points:
         - ref: matrix_pinky_bottom
           shift: [-0.5kx - edge_padding, -0.5ky - mcu_y - 2*mcu_padding]
