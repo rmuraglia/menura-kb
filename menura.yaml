@@ -3,6 +3,7 @@ units:
   # mx spacing
   kx: u
   ky: u
+  edge_padding: 1
   # stagger and splay
   ring_stagger: ky/2 + 2.5
   middle_stagger: 5
@@ -10,13 +11,13 @@ units:
   inner_stagger: -2.5
   thumb_splay: -5
   thumb_spread: 0.525kx
-  thumb_drop_offset: -1.25ky
+  thumb_drop_offset: -1.2ky
 
   # for other components
   # nb: mcu footprint has the port pointing to the left
   mcu_x: 33
   mcu_y: 18
-  mcu_padding: 2  # extra buffer between mcu and nearest switch footprint
+  mcu_padding: 2.11  # extra buffer between mcu to make bottom edge cut straight with thumbs
   mcu_adj: 7  # adjustment to align mcu (but not the port) and switch
   diode_adj_x: -8.6  # diode adjustment in main switch matrix
   diode_adj_y: -1.9
@@ -25,16 +26,17 @@ units:
   # MSK-12C02 type power switch
   pwr_x: 5.85
   pwr_y: 8.8
-  pwr_mcu_y_offset: -0.5mcu_y + 0.5pwr_x - 1.5  # align pads (not physical toggle switch)
+  pwr_adj: 1.12 # align edge cut to pads (not physical toggle switch)
+  pwr_mcu_y_offset: -0.5mcu_y - mcu_padding + 0.5pwr_x - pwr_adj
   # generic through hole 2 pin 3x6x4.3mm button/switch e.g. MJTP1243
   rst_x: 9
   rst_y: 3.5
   rst_pwr_x_offset: 2
-  rst_pwr_y_offset: -2.9
+  rst_pwr_y_offset: -2.5 - mcu_padding
   jst_x: 8.9
   jst_y: 8.6
   jst_mcu_x_offset: 13
-  jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y
+  jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y - mcu_padding
   vik_x: 11
   vik_y: 9.1
   vik_padding: 0
@@ -232,28 +234,26 @@ outlines:
   board:
     - what: polygon
       operation: stack
-      fillet: 5
+      fillet: 0
       points:
         - ref: matrix_pinky_bottom
-          shift: [-0.7kx, -1.5ky]
+          shift: [-0.5kx - edge_padding, -0.5ky - mcu_y - 2*mcu_padding]
         - ref: matrix_pinky_top
-          shift: [-0.7kx, 0.7ky]
+          shift: [-0.5kx - edge_padding, 0.5 ky + edge_padding]
         - ref: matrix_ring_top
-          shift: [-0.7kx, 0.7ky]
+          shift: [-0.5kx - edge_padding, 0.5ky + edge_padding]
         - ref: matrix_middle_top
-          shift: [0kx, 0.7ky]
-        - ref: matrix_index_top
-          shift: [0.7kx, 0.7ky]
+          shift: [-0.5kx, 0.5ky + edge_padding]
+        - ref: matrix_middle_top
+          shift: [0.5kx, 0.5ky + edge_padding]
         - ref: matrix_inner_top
-          shift: [0.7kx, 0.7ky]
+          shift: [0.5kx + edge_padding, 0.5ky + edge_padding]
         - ref: matrix_inner_bottom
-          shift: [0.7kx, -0.7ky]
+          shift: [0.5kx + edge_padding, 0.25ky]
         - ref: thumbs_reachy_cluster
-          shift: [0.7kx, 0.7ky]
+          shift: [0.5kx + edge_padding, 0.5ky + edge_padding]
         - ref: thumbs_reachy_cluster
-          shift: [0.7kx, -0.7ky]
-        - ref: thumbs_tucky_cluster
-          shift: [-0.7kx, -0.7ky]
+          shift: [0.5kx + edge_padding, -0.5ky - edge_padding]
   combo_all:
     - board
     - ^all_keys
