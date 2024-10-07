@@ -27,22 +27,25 @@ units:
   pwr_x: 5.85
   pwr_y: 8.8
   pwr_adj: 1.12 # align edge cut to pads (not physical toggle switch)
+  pwr_mcu_x_offset: 5
   pwr_mcu_y_offset: -0.5mcu_y - mcu_padding + 0.5pwr_x - pwr_adj
   # generic through hole 2 pin 3x6x4.3mm button/switch e.g. MJTP1243
   rst_x: 9
   rst_y: 3.5
   rst_pwr_x_offset: 2
-  rst_pwr_y_offset: -2.5 - mcu_padding
+  rst_pwr_y_offset: -2.5 + mcu_padding + 0.2
   jst_x: 8.9
   jst_y: 8.6
-  jst_mcu_x_offset: 13
-  jst_mcu_y_offset: 0.5mcu_y - 0.5jst_y - mcu_padding
+  jst_x_adj: 2.5
+  jst_y_adj: 2.5
   vik_x: 11
   vik_y: 9.1
   vik_adj_x: 2
   vik_adj_y: 1
   vik_tht_x: 17
   vik_tht_y: 16
+  vik_tht_adj_x: 2.5
+  vik_tht_adj_y: 15
 
 points:
   zones:
@@ -126,10 +129,10 @@ points:
       key:
         width: jst_x
         height: jst_y
-        rotate: 180
+        rotate: 90
       anchor:
-        ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + jst_mcu_x_offset, jst_mcu_y_offset]
+        ref: matrix_ring_bottom
+        shift: [-jst_x_adj, -0.5ky - 0.5jst_y - jst_y_adj]
     pwr:
       key:
         width: pwr_x
@@ -137,14 +140,15 @@ points:
         rotate: 270
       anchor:
         ref: mcu
-        shift: [0.5mcu_x + 0.5jst_x + jst_mcu_x_offset, pwr_mcu_y_offset]
+        shift: [0.5mcu_x + 0.5pwr_x + pwr_mcu_x_offset, pwr_mcu_y_offset]
     rst:
       key:
         width: rst_x
         height: rst_y
       anchor:
         ref: pwr
-        shift: [rst_pwr_y_offset, -0.5pwr_y - 0.5rst_x - rst_pwr_x_offset]
+        shift: [rst_pwr_y_offset, 0.5pwr_y + 0.5rst_x + rst_pwr_x_offset]
+        rotate: 90
     vik:
       key:
         width: vik_x
@@ -158,8 +162,9 @@ points:
         width: vik_tht_x
         height: vik_tht_y
       anchor:
-        ref: matrix_ring_bottom
-        shift: [0, -0.5ky - 0.5vik_tht_y]
+        ref: matrix_middle_bottom
+        shift: [-vik_tht_adj_x, -0.5ky - 0.5vik_tht_y - vik_tht_adj_y]
+        rotate: 270
     mount_1:
       key:
         width: m2
