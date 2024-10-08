@@ -1,0 +1,123 @@
+(footprint "Logo_menura"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "9cb3ae62-eb53-47a2-8e1b-20cadec19196")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "Logo_menura"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ec75b194-388b-44db-a105-f1d379c2f5d1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" "Logo_menura"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3e4a326a-e4ba-43b1-8e04-34449ffd8011")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "48e48a9f-e31a-4baa-b35e-8170ee865bbe")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b8f70d17-bb66-48b2-a83d-c5f0aba7ff05")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_text user "https://github.com/rmuraglia/menura-kb"
+		(at 0 0.25 0)
+		(unlocked yes)
+		(layer "B.SilkS")
+		(uuid "5c9ef1e7-af46-426f-9b65-b9e5c2b05524")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify top mirror)
+		)
+	)
+	(fp_text user "menura v1.0.0"
+		(at 0 -0.25 0)
+		(unlocked yes)
+		(layer "B.SilkS")
+		(uuid "c8ea38d0-b527-4127-9725-f918d03ffe86")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify bottom mirror)
+		)
+	)
+	(fp_text user "menura v1.0.0"
+		(at 0 -0.25 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "380b3f8c-8b26-4d94-9752-6a33a7745c16")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify bottom)
+		)
+	)
+	(fp_text user "https://github.com/rmuraglia/menura-kb"
+		(at 0 0.25 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "96598a1f-b7bb-443e-ba34-b7b6d4c7b8fb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify top)
+		)
+	)
+)

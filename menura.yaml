@@ -46,6 +46,10 @@ units:
   vik_tht_y: 16
   vik_tht_adj_x: 2.5
   vik_tht_adj_y: 15
+  logo_menura_x: 33
+  logo_menura_y: 4
+  logo_vik_x: 6
+  logo_vik_y: 5.25
 
 points:
   zones:
@@ -193,6 +197,21 @@ points:
       anchor:
         ref: matrix_pinky_top
         shift: [-0.7kx, 0.7ky]
+    logo_menura:
+      key:
+        width: logo_menura_x
+        height: logo_menura_y
+      anchor:
+        ref: rst
+        shift: [25, 0]
+    logo_vik:
+      key:
+        width: logo_vik_x
+        height: logo_vik_y
+      anchor:
+        ref: vik
+        shift: [-10, -0.9]
+        rotate: 30
 outlines:
   all_keys:
     - what: rectangle
@@ -233,6 +252,12 @@ outlines:
     - what: rectangle
       size: [vik_tht_x, vik_tht_y]
       where: vik_tht
+    - what: rectangle
+      size: [logo_menura_x, logo_menura_y]
+      where: logo_menura
+    - what: rectangle
+      size: [logo_vik_x, logo_vik_y]
+      where: logo_vik
   mounting_holes:
     - what: circle
       radius: m2 / 2
@@ -367,5 +392,17 @@ pcbs:
         where: /mount_.*/
         params:
           designator: "H"
+          net: ""
+      logo_menura:
+        what: pad
+        where: logo_menura
+        params:
+          designator: "LOGO"
+          net: ""
+      logo_vik:
+        what: pad
+        where: logo_vik
+        params:
+          designator: "LOGO"
           net: ""
 
