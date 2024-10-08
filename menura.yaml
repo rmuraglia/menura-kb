@@ -40,8 +40,8 @@ units:
   jst_y_adj: 2.5
   vik_x: 11
   vik_y: 9.1
-  vik_adj_x: 2
-  vik_adj_y: 1
+  vik_adj_x: 5.5
+  vik_adj_y: 3 - vik_adj_x
   vik_tht_x: 17
   vik_tht_y: 16
   vik_tht_adj_x: 2.5
@@ -174,29 +174,29 @@ points:
         width: m2
         height: m2
       anchor:
-        ref: matrix_pinky_top
-        shift: [-0.7kx, 0.7ky]
+        ref: matrix_ring_top
+        shift: [-7.5, -0.5ky]
     mount_2:
       key:
         width: m2
         height: m2
       anchor:
-        ref: matrix_pinky_top
-        shift: [-0.7kx, 0.7ky]
+        ref: matrix_ring_bottom
+        shift: [-7.5, -0.5ky]
     mount_3:
       key:
         width: m2
         height: m2
       anchor:
-        ref: matrix_pinky_top
-        shift: [-0.7kx, 0.7ky]
+        ref: matrix_index_top
+        shift: [7.5, -0.5ky]
     mount_4:
       key:
         width: m2
         height: m2
       anchor:
-        ref: matrix_pinky_top
-        shift: [-0.7kx, 0.7ky]
+        ref: thumbs_home_cluster
+        shift: [0, 0.5ky]
     logo_menura:
       key:
         width: logo_menura_x
@@ -209,9 +209,8 @@ points:
         width: logo_vik_x
         height: logo_vik_y
       anchor:
-        ref: vik
-        shift: [-10, -0.9]
-        rotate: 30
+        ref: rst
+        shift: [15, 5]
 outlines:
   all_keys:
     - what: rectangle
