@@ -47,8 +47,6 @@ units:
   vik_tht_adj_x: 2.5
   vik_tht_adj_y: 15
   hole_x_adj: 7
-  plated_x_adj: 10
-  plated_y_adj: 1
   logo_menura_x: 33
   logo_menura_y: 4
   logo_vik_x: 6
@@ -200,27 +198,6 @@ points:
       anchor:
         ref: thumbs_home_cluster
         shift: [0, 0.5ky]
-    plated_mount_1:
-      key:
-        width: m2
-        height: m2
-      anchor:
-        ref: vik
-        shift: [-plated_x_adj, -plated_y_adj]
-    plated_mount_2:
-      key:
-        width: m2
-        height: m2
-      anchor:
-        ref: vik
-        shift: [plated_x_adj, -plated_y_adj]
-    plated_mount_3:
-      key:
-        width: m2
-        height: m2
-      anchor:
-        ref: matrix_inner_top
-        shift: [hole_x_adj, 0.55ky]
     logo_menura:
       key:
         width: logo_menura_x
@@ -284,7 +261,7 @@ outlines:
   mounting_holes:
     - what: circle
       radius: m2 / 2
-      where: /.*mount_.*/
+      where: /mount_.*/
   board:
     - what: polygon
       operation: stack
@@ -301,7 +278,7 @@ outlines:
         - ref: matrix_middle_top
           shift: [0.5kx, 0.5ky + edge_padding]
         - ref: matrix_inner_top
-          shift: [0.5kx + edge_padding, 0.5ky + 4*edge_padding]
+          shift: [0.5kx + edge_padding, 0.5ky + edge_padding]
         - ref: matrix_inner_bottom
           shift: [0.5kx + edge_padding, 0.25ky]
         - ref: thumbs_reachy_cluster
@@ -415,12 +392,6 @@ pcbs:
         where: /mount_.*/
         params:
           designator: "H"
-          net: ""
-      plated_holes:
-        what: pad
-        where: /plated_mount_.*/
-        params:
-          designator: "PH"
           net: ""
       logo_menura:
         what: pad
