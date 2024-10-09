@@ -18,9 +18,6 @@
     - [corax](https://github.com/dnlbauer/corax-keyboard/tree/main)
     - [flatfootfox's guide](https://flatfootfox.com/ergogen-introduction/)
 - Modular wedge design planned to use similar technique as in [this reddit post](https://redd.it/1ej0ngl)
-- Overlapping switch footprint references:
-    - [ergotravelxt](https://github.com/FIXMBR/ErgoTravelXT)
-    - [revxlp](https://gitlab.com/lpgalaxy/revxlp)
 
 ## Naming
 
@@ -33,8 +30,17 @@ and
 
 > It is one of the world's largest songbirds, and is renowned for its elaborate tail and courtship displays, and its excellent mimicry. The species is endemic to Australia and is found in forest in the southeast of the country. According to David Attenborough, the superb lyrebird displays one of the most sophisticated voice skills within the animal kingdom—"the most elaborate, the most complex, and the most beautiful"
 
-## Unsorted/loose todos and notes
+## Images
 
-- To support multi layouts in ZMK, you can use the `chosen` thing, like in the corneish zen
-- Currently, with a wireless-only design, you can pull off 9 vik pins + 4 rows + 5 cols = 18 pins exactly on the outer edge of a pro micro. If I wanted to use the inner pins of a nice!nano or the bottom edge pins of a rp2040 community edition controller, then I could add wired support and a 6th column.
-- Need to explore using an SMD-only diode footprint (or staggering the ones for the inner column), and want to use a hotswap footprint with the socket outline to confirm clearances
+Menura PCB: ![menura pcb](img/menura-pcb.png)
+
+Menura in 36 key configuration: ![menura-36key](img/36-key.png)
+
+Menura in 30 key configuration: ![menura-30key](img/30-key.png)
+
+## TODOs
+
+- routing
+- slide-on wedge case and center wedge
+- magnet case and wedge
+- "tenting leg" hole case and wedge
