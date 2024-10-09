@@ -36,8 +36,8 @@ units:
   rst_pwr_y_offset: -2.5 + mcu_padding + 0.2
   jst_x: 8.9
   jst_y: 8.6
-  jst_x_adj: 1
-  jst_y_adj: 3.2
+  jst_x_adj: 0.1
+  jst_y_adj: 2.2
   vik_x: 11
   vik_y: 9.1
   vik_adj_x: 4.5
