@@ -17,6 +17,11 @@
     - [trochilidae](https://github.com/jcmkk3/trochilidae/tree/main)
     - [corax](https://github.com/dnlbauer/corax-keyboard/tree/main)
     - [flatfootfox's guide](https://flatfootfox.com/ergogen-introduction/)
+- Other boards:
+    - [vulpes minora](https://github.com/sadekbaroudi/vulpes-minora)
+    - [urchin](https://github.com/duckyb/urchin)
+    - [temper](https://github.com/raeedcho/temper)
+    - [klotz](https://github.com/GEIGEIGEIST/KLOTZ)
 - Modular wedge design planned to use similar technique as in [this reddit post](https://redd.it/1ej0ngl)
 
 ## Naming
