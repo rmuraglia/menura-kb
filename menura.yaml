@@ -214,6 +214,13 @@ points:
       anchor:
         ref: vik
         shift: [plated_x_adj, -plated_y_adj]
+    plated_mount_3:
+      key:
+        width: m2
+        height: m2
+      anchor:
+        ref: matrix_inner_top
+        shift: [hole_x_adj, 0.55ky]
     logo_menura:
       key:
         width: logo_menura_x
@@ -294,7 +301,7 @@ outlines:
         - ref: matrix_middle_top
           shift: [0.5kx, 0.5ky + edge_padding]
         - ref: matrix_inner_top
-          shift: [0.5kx + edge_padding, 0.5ky + edge_padding]
+          shift: [0.5kx + edge_padding, 0.5ky + 4*edge_padding]
         - ref: matrix_inner_bottom
           shift: [0.5kx + edge_padding, 0.25ky]
         - ref: thumbs_reachy_cluster
