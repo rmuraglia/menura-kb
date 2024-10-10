@@ -1,4 +1,4 @@
-(footprint "Logo_menura"
+(footprint "Logo_menura_info"
 	(version 20240108)
 	(generator "pcbnew")
 	(generator_version "8.0")
@@ -16,7 +16,7 @@
 			)
 		)
 	)
-	(property "Value" "Logo_menura"
+	(property "Value" "Logo_menura_info"
 		(at 0 1 0)
 		(unlocked yes)
 		(layer "F.Fab")
@@ -29,7 +29,7 @@
 			)
 		)
 	)
-	(property "Footprint" "Logo_menura"
+	(property "Footprint" "Logo_menura_info"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
@@ -81,7 +81,7 @@
 			(justify top mirror)
 		)
 	)
-	(fp_text user "menura v1.0.0"
+	(fp_text user "menura v1.0"
 		(at 0 -0.25 0)
 		(unlocked yes)
 		(layer "B.SilkS")
@@ -94,7 +94,7 @@
 			(justify bottom mirror)
 		)
 	)
-	(fp_text user "menura v1.0.0"
+	(fp_text user "menura v1.0"
 		(at 0 -0.25 0)
 		(unlocked yes)
 		(layer "F.SilkS")

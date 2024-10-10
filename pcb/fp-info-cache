@@ -1,4 +1,4 @@
-23950683501873810
+23954141086518320
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -96698,7 +96698,28 @@ R
 6
 2
 quappo
-Logo_menura
+Logo_menura_composite
+
+
+0
+0
+0
+quappo
+Logo_menura_icon_06
+
+
+0
+0
+0
+quappo
+Logo_menura_icon_45
+
+
+0
+0
+0
+quappo
+Logo_menura_info
 
 
 0
@@ -96753,13 +96774,6 @@ Switch_reset-2pin
 0
 2
 2
-quappo
-TentingPuck
-
-
-0
-5
-1
 quappo
 TentingPuck_NoHole
 

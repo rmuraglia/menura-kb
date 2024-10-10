@@ -47,10 +47,9 @@ units:
   vik_tht_adj_x: 2.5
   vik_tht_adj_y: 15
   hole_x_adj: 7
-  logo_menura_x: 33
-  logo_menura_y: 4
-  logo_vik_x: 6
-  logo_vik_y: 5.25
+  logo_x: 33
+  logo_y: 10.5
+  logo_rst_x_offset: 25
 
 points:
   zones:
@@ -198,20 +197,13 @@ points:
       anchor:
         ref: thumbs_home_cluster
         shift: [0, 0.5ky]
-    logo_menura:
+    logo:
       key:
-        width: logo_menura_x
-        height: logo_menura_y
+        width: logo_x
+        height: logo_y
       anchor:
         ref: rst
-        shift: [25, 0]
-    logo_vik:
-      key:
-        width: logo_vik_x
-        height: logo_vik_y
-      anchor:
-        ref: rst
-        shift: [15, 5]
+        shift: [logo_rst_x_offset, -0.5rst_y +  0.5logo_y]
 outlines:
   all_keys:
     - what: rectangle
@@ -253,11 +245,8 @@ outlines:
       size: [vik_tht_x, vik_tht_y]
       where: vik_tht
     - what: rectangle
-      size: [logo_menura_x, logo_menura_y]
-      where: logo_menura
-    - what: rectangle
-      size: [logo_vik_x, logo_vik_y]
-      where: logo_vik
+      size: [logo_x, logo_y]
+      where: logo
   mounting_holes:
     - what: circle
       radius: m2 / 2
@@ -393,15 +382,9 @@ pcbs:
         params:
           designator: "H"
           net: ""
-      logo_menura:
+      logo:
         what: pad
-        where: logo_menura
-        params:
-          designator: "LOGO"
-          net: ""
-      logo_vik:
-        what: pad
-        where: logo_vik
+        where: logo
         params:
           designator: "LOGO"
           net: ""

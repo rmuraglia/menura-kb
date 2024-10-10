@@ -6631,7 +6631,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "menura"
+		(property "Value" "menura_composite"
 			(at 90.17 145.4149 0)
 			(effects
 				(font
@@ -6640,7 +6640,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "quappo:Logo_menura"
+		(property "Footprint" "quappo:Logo_menura_composite"
 			(at 83.82 144.78 0)
 			(effects
 				(font
@@ -7894,70 +7894,6 @@
 			(project "menura"
 				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
 					(reference "SW19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Graphic:Logo_Open_Hardware_Small")
-		(at 109.22 144.78 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cb0bad1b-a925-490f-9d62-7c6ab6b93b95")
-		(property "Reference" "LOGO2"
-			(at 115.57 142.8749 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "vik"
-			(at 115.57 145.4149 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "quappo:Logo_vik-small"
-			(at 109.22 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 109.22 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Open Hardware logo, small"
-			(at 109.22 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "menura"
-				(path "/e9ea61dd-32b8-44c9-bab5-2f724da397cf"
-					(reference "LOGO2")
 					(unit 1)
 				)
 			)
