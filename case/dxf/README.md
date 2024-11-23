@@ -1,0 +1,2 @@
+- the `raw` directory contains dxf exports from ergogen as is
+- the `cleaned` directory contains dxf exports from fusion after I've done some minor clean up and modification (closing gaps in outlines, trimming internal lines, extending lines to section off areas that I want to treat as different faces)

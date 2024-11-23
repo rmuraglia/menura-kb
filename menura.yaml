@@ -4,6 +4,8 @@ units:
   kx: u
   ky: u
   edge_padding: 1
+  preview_key_adj: 0.5  # how much to shrink the keys in the preview, so boxes aren't overlapping
+
   # stagger and splay
   ring_stagger: ky/2 + 2.5
   middle_stagger: 5
@@ -12,6 +14,14 @@ units:
   thumb_splay: -5
   thumb_spread: 0.525kx
   thumb_drop_offset: -1.2ky
+
+  # for the case
+  sw_hole: 14  # size of hole for switch in plate
+  keycap_padding: 0.5  # extra room to account for keycap
+  inner_wall_offset: 1  # manufacturing tolerance around pcb outline
+  outer_wall_offset: 3  # main case wall thickness
+  shadow_inner_offset: 1.2  # offset from inner wall for shadow line inner piece
+  shadow_outer_offset: outer_wall_offset - shadow_inner_offset  # offset for shadow line outer piece
 
   # for other components
   # nb: mcu footprint has the port pointing to the left
@@ -22,7 +32,8 @@ units:
   diode_adj_x: -8.6  # diode adjustment in main switch matrix
   diode_adj_y: -1.9
   diode_adj_thumb: -8.2  # diode adjustment in thumb cluster
-  m2: 2.2  # m2 screw hole diameter
+  m3: 3.2  # m3 hole diameter (for an m2 standoff)
+  m2cs: 4.4  # m2 countersunk hole clearance diameter
   # MSK-12C02 type power switch
   pwr_x: 5.85
   pwr_y: 8.8
@@ -57,6 +68,7 @@ points:
       key:
         padding: 0.5ky
         spread: kx
+        bind: [0, 0, 0, 0]
       anchor:
         shift: [100, -100]
       rows:
@@ -94,14 +106,17 @@ points:
           key:
             stagger: inner_stagger
           rows.bottom.tags: [inner_3x5]
+          rows.bottom.bind: [0, 0, 4, 0]
           rows.home.tags: [inner_3x5]
           rows.top.tags: [inner_3x5]
           rows.bird_bottom.tags: [inner_bird]
+          rows.bird_bottom.bind: [0, 0, 14, 0]
           rows.bird_top.tags: [inner_bird]
     thumbs:
       key:
         padding: ky
         spread: thumb_spread
+        bind: [0, 0, 0, 0]
         splay: thumb_splay
         origin: [-0.5thumb_spread, -0.5ky]
       anchor:
@@ -114,14 +129,19 @@ points:
           key:
             splay: 0
             tags: [3thumb]
+            bind: [4, 2, 0, 0]
         midtucky:
           key.tags: [2thumb]
+          key.bind: [4, 2, 0, 0]
         home:
           key.tags: [3thumb]
+          key.bind: [0, 2, 0, 2]
         midreachy:
           key.tags: [2thumb]
+          key.bind: [0, 0, 0, 2]
         reachy:
           key.tags: [3thumb]
+          key.bind: [0, 0, 0, 2]
     mcu:
       key:
         width: mcu_x
@@ -171,29 +191,29 @@ points:
         rotate: 270
     mount_1:
       key:
-        width: m2
-        height: m2
+        width: m3
+        height: m3
       anchor:
         ref: matrix_ring_top
         shift: [-hole_x_adj, -0.5ky]
     mount_2:
       key:
-        width: m2
-        height: m2
+        width: m3
+        height: m3
       anchor:
         ref: matrix_ring_bottom
         shift: [-hole_x_adj, -0.5ky]
     mount_3:
       key:
-        width: m2
-        height: m2
+        width: m3
+        height: m3
       anchor:
         ref: matrix_index_top
         shift: [hole_x_adj, -0.5ky]
     mount_4:
       key:
-        width: m2
-        height: m2
+        width: m3
+        height: m3
       anchor:
         ref: thumbs_home_cluster
         shift: [0, 0.5ky]
@@ -205,27 +225,21 @@ points:
         ref: rst
         shift: [logo_rst_x_offset, -0.5rst_y +  0.5logo_y]
 outlines:
-  all_keys:
+  _preview_keys36:
     - what: rectangle
-      where:
-          - /matrix_.*/
-          - /thumbs_.*/
-      size: [kx-0.5, ky-0.5]
-  keys36:
-    - what: rectangle
-      size: [kx-0.5, ky-0.5]
+      size: [kx-preview_key_adj, ky-preview_key_adj]
       where:
         - matrix_common
         - /.*_3x5/
         - 3thumb
-  keys30:
+  _preview_keys30:
     - what: rectangle
-      size: [kx-0.5, ky-0.5]
+      size: [kx-preview_key_adj, ky-preview_key_adj]
       where:
         - matrix_common
         - inner_bird
         - 2thumb
-  components:
+  _preview_components:
     - what: rectangle
       size: [mcu_x, mcu_y]
       where: mcu
@@ -247,14 +261,17 @@ outlines:
     - what: rectangle
       size: [logo_x, logo_y]
       where: logo
-  mounting_holes:
+  _mounting_holes:
     - what: circle
-      radius: m2 / 2
+      radius: m3 / 2
       where: /mount_.*/
-  board:
+  _mounting_screws:
+    - what: circle
+      radius: m2cs / 2
+      where: /mount_.*/
+  _board:
     - what: polygon
       operation: stack
-      fillet: 2
       points:
         - ref: matrix_pinky_bottom
           shift: [-0.5kx - edge_padding, -0.5ky - mcu_y - 2*mcu_padding]
@@ -274,26 +291,110 @@ outlines:
           shift: [0.5kx + edge_padding, 0.5ky + edge_padding]
         - ref: thumbs_reachy_cluster
           shift: [0.5kx + edge_padding, -0.5ky - edge_padding]
-  combo_all:
-    - board
-    - ^all_keys
-    - ^components
-    - ^mounting_holes
-  combo_36:
-    - board
-    - ^keys36
-    - ^components
-    - ^mounting_holes
-  combo_30:
-    - board
-    - ^keys30
-    - ^components
-    - ^mounting_holes
+  _pcb:
+    - what: outline
+      name: _board
+      fillet: 2
+  preview_36:
+    - _pcb
+    - ^_preview_keys36
+    - ^_preview_components
+    - ^_mounting_holes
+  preview_30:
+    - _pcb
+    - ^_preview_keys30
+    - ^_preview_components
+    - ^_mounting_holes
+  _board_inner_wall:
+    - what: outline
+      name: _board
+      expand: inner_wall_offset
+      joints: 1
+  _board_outer_wall:
+    - what: outline
+      name: _board
+      expand: inner_wall_offset + outer_wall_offset
+      joints: 1
+  _shadow_inner_wall:
+    - what: outline
+      name: _board
+      expand: inner_wall_offset + shadow_inner_offset
+      joints: 1
+  _shadow_outer_wall:
+    - what: outline
+      name: _board
+      expand: inner_wall_offset + shadow_outer_offset
+      joints: 1
+  _board_outlines:
+    - _board_inner_wall
+    - ^_board_outer_wall
+    - ^_shadow_inner_wall
+    - ^_shadow_outer_wall
+  _case_components:
+    - what: rectangle
+      size: [mcu_x, mcu_y]
+      where: mcu
+    - what: rectangle
+      size: [pwr_x, pwr_y]
+      where: pwr
+    - what: rectangle
+      size: [rst_x, rst_y]
+      where: rst
+    - what: rectangle
+      size: [vik_x, vik_y]
+      where: vik
+    - what: rectangle
+      size: [jst_x, jst_y]
+      where: jst
+  case_bottom:
+    - _board_outlines
+    - ^_mounting_screws
+    - ^_case_components
+  _plate_3x5_3_switches:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - matrix_common
+        - /.*_3x5/
+        - 3thumb
+  _plate_3x5_3_keycaps:
+    - what: rectangle
+      bound: true
+      size: [kx + keycap_padding, ky + keycap_padding]
+      where:
+        - matrix_common
+        - /.*_3x5/
+        - 3thumb
+  case_plate_3x5_3:
+    - case_bottom
+    - ^_plate_3x5_3_switches
+    - ^_plate_3x5_3_keycaps
+  _plate_23332_2_switches:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - matrix_common
+        - inner_bird
+        - 2thumb
+  _plate_23332_2_keycaps:
+    - what: rectangle
+      bound: true
+      size: [kx + keycap_padding, ky + keycap_padding]
+      where:
+        - matrix_common
+        - inner_bird
+        - 2thumb
+  case_plate_23332_2:
+    - case_bottom
+    - ^_plate_23332_2_switches
+    - ^_plate_23332_2_keycaps
+  # 23332_3
+  # 3x5_2
 pcbs:
   menura:
     outlines:
       main:
-        outline: board
+        outline: _pcb
     footprints:
       sw_hotswap:
         what: mx
@@ -388,4 +489,3 @@ pcbs:
         params:
           designator: "LOGO"
           net: ""
-
