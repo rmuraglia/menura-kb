@@ -11,7 +11,7 @@
 | hotswap socket                         | 44       | MX                                                                                                                                                 |
 | reset button                           | 2        | through hole 2 pin 3x6mm, e.g. [MJTP1243](https://www.digikey.com/en/products/detail/apem-inc/MJTP1243/1798039)                                    |
 | power switch                           | 2        | PCM12-like, e.g. [MSK12C02](https://www.lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-MSK12C02_C431540.html)                                    |
-| battery jack                           | 2        | 2-pin JST PH e.g. [S2B-PH-K-S](https://www.digikey.com/en/products/detail/jst-sales-america-inc./S2B-PH-K-S/926626)                                |
+| (optional) battery jack                | 2        | 2-pin JST PH e.g. [S2B-PH-K-S](https://www.digikey.com/en/products/detail/jst-sales-america-inc./S2B-PH-K-S/926626)                                |
 | battery                                | 2        | [301230 lipo](https://github.com/joric/nrfmicro/wiki/Batteries#301230) recommended for ease of tucking under mcu                                   |
 | (optional) FFC connector               | 2        | 12 pin, 0.5mm pitch [example](https://www.lcsc.com/product-detail/FFC-FPC-Connectors_SHENZHEN-ATOM-TECH-FPC05012-09200_C479750.html)               |
 
@@ -29,8 +29,8 @@ This is the order (and location) in which I like to install the components:
 
 > [!NOTE]
 > The power switch's ON position is when it is toggled closer to the side with only one pad.
-> This means that if you follow the suggestion to install the power switches on the top of the PCB, then the ON positon will correspond to toggling the switch to the LEFT.
-> Yes, this is kind of counter-intuitive and regrettable.
+> This means that if you follow the suggestion to install the power switches on the top of the PCB, then the ON positon will correspond to toggling the switch to the LEFT.  
+> Yes, this is kind of counter-intuitive and regrettable.  
 > No, I did not think of this when designing it.
 
 ![power-switch](img/power-switch.jpg)
@@ -44,11 +44,11 @@ If anything from that abbreviated build order is unclear, expand the section bel
 
 <summary>Expand for additional build tips and info</summary>
 
-### Component overview
+### Parts overview
 
-Before getting started, here is a quick visual overview of the components you should have ready to go:
+Before getting started, here is a quick visual overview of the parts you should have ready to go:
 
-![component-overview](img/component-overview.jpg)
+![parts-overview](img/parts-overview.jpg)
 
 ###  Diode orientation
 
@@ -71,16 +71,51 @@ For example, for my left and right sides, I orient the jack as follows:
 
 ### Socketing a controller
 
-Tip from duet, tape trick for pins
+filterpaper's [guide to socketing microcontrollers](https://filterpaper.github.io/socket-mcu.html) is nice and to the point. In a nutshell:
+
+1. Solder the sockets to the PCB
+2. Cover the sockets with kapton tape
+3. Insert pins by piercing through the tape
+4. Solder the MCU (be **very** careful to verify the MCU orientation at this point)
+5. Remove the MCU, remove the tape, then re-place the MCU in the sockets
+
+For step (1), a common challenge is making sure that the sockets are well aligned, vertically (i.e. pointing straight out of the hole, and not diagonally slanted).
+While tape can help, it isn't always sufficient or reliable.  
+I like to either use an extra set of sockets placed perpendicularly, or if you have one, an already-socketed MCU is great to force that vertical alignment:
+
+![socket-helper](img/socket-helper.jpg)
+
+For step (4), ensure that the labelled pins match between the PCB and the MCU.
+Adhering to this simple constraint will guarantee that you install it correctly, rather than trying to remember or interpret "face up" "components down" or some other phrase.
+
+TODO: image here
 
 ### Soldering SMD (surface mount) components
 
-Tin one side, place while heating, do other side.
-For self-guiding parts like hot swap sockets, no need to pre-tin
+Via the [Kimiko build guide from keycapsss](https://keycapsss.com/help/kimiko/buildguide_en):
+
+![smd-soldering](img/smd-soldering.png)
+
+Basically:
+
+1. tin one pad (heat and apply a little solder)
+2. place the component while heating that pre-tinned side
+3. once satisfied with placement and alignment, solder the other side
+
+For self-guiding parts, like hotswap sockets which have plastic housings that fit into holes on the PCB, pre-tinning one side is not as critical -- you can just place the component and solder it in place.
 
 ### Soldering THT (through hole) components
 
-Tape, solder
+Again, via the [Kimiko build guide from keycapsss](https://keycapsss.com/help/kimiko/buildguide_en):
+
+![tht-soldering](img/tht-soldering.png)
+
+Basically:
+
+1. place your component, and tape it in place if necessary
+2. flip the board so you can access the pins poking through the plated holes
+3. heat the pin **and** the hole
+4. feed solder to the heated pin/hole *not* directly to the iron -- this helps to make sure you adequately heated the part, to prevent a cold joint
 
 ### Drag soldering fine pitch components
 
