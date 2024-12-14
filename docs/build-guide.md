@@ -1,4 +1,3 @@
-
 # Building the PCB
 
 ## BOM
@@ -23,12 +22,18 @@ This is the order (and location) in which I like to install the components:
 1. **Diodes**: install these on the *bottom* of the PCB. The line on the diode should be closer to the pad enclosed by a silkscreen marking. If this is unclear, please check the [build tips](#build-tips) section below.
 2. **Hotswap sockets**: install on the *bottom* of the PCB
 3. **Power switch**: install on the *top* of the PCB. You may install it on the bottom if you prefer, but you will then have to adjust the case
-4. **Controller**: install on the *top* of the PCB. It is strongly recommended to socket your controller with sufficiently tall sockets so you can put the battery between the controller and the PCB.
+4. **Controller**: install on the *top* of the PCB. It is strongly recommended to socket your controller with sufficiently tall sockets so you can put the battery between the controller and the PCB. Be sure to align the labeled pins -- this means that on the left, the MCU will have the components on top, and on the right, the components will be facing down.
 5. **Reset button**: install on *top* of the PCB. You may install it on the bottom if you prefer, but you will then have to adjust the case
 6. **Battery jack**: install on *top* of the PCB. Note that you will only use 2 of the 3 through holes at any given time. Align the positive (+, conventionally red) terminal of your battery with the *center* hole of the footprint. Check the [build tips](#build-tips) for more detailed info. You may install this on the bottom if you prefer, etc etc
 7. **FFC connector**: this footprint is only available on one side, so you don't have much of a choice 😅 
 
-Note on power switch on/off positions
+> [!NOTE]
+> The power switch's ON position is when it is toggled closer to the side with only one pad.
+> This means that if you follow the suggestion to install the power switches on the top of the PCB, then the ON positon will correspond to toggling the switch to the LEFT.
+> Yes, this is kind of counter-intuitive and regrettable.
+> No, I did not think of this when designing it.
+
+![power-switch](img/power-switch.jpg)
 
 ## Build tips
 
@@ -39,13 +44,30 @@ If anything from that abbreviated build order is unclear, expand the section bel
 
 <summary>Expand for additional build tips and info</summary>
 
+### Component overview
+
+Before getting started, here is a quick visual overview of the components you should have ready to go:
+
+![component-overview](img/component-overview.jpg)
+
 ###  Diode orientation
 
-Picture
+The side of the diode with the line corresponds to the pad enclosed by a box on the silkscreen
+
+![diode-orientation](img/diode-orientation.jpg)
 
 ### Battery jack orientation
 
-Picture, explanation, why 3 holes?
+> ![WARNING]
+> I assume that red on your battery corresponds to (+) based on common conventions, but this is not guaranteed.
+> Before doing anything with your battery, you should [check the battery polarity with a multimeter](https://electronics.stackexchange.com/a/104377), and reverse the instructions below if necessary.
+
+The 3-holed footprint for the 2-pin component is to provide flexiblity in battery jack orientation.
+The red (+) wire of your battery will **always** go to the center hole, then you place the black (-) wire to whichever outer hole provides the most convenient orientation for you.  
+For example, for my left and right sides, I orient the jack as follows:
+
+![jst-left](img/jst-left.png)
+![jst-right](img/jst-right.png)
 
 ### Socketing a controller
 
