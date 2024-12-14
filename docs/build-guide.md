@@ -19,12 +19,12 @@
 
 This is the order (and location) in which I like to install the components:
 
-1. **Diodes**: install these on the *bottom* of the PCB. The line on the diode should be closer to the pad enclosed by a silkscreen marking. If this is unclear, please check the [build tips](#build-tips) section below.
+1. **Diodes**: install these on the *bottom* of the PCB. The line on the diode should be closer to the pad enclosed by a silkscreen marking. If this is unclear, please check the [build tips](#diode-orientation) section below.
 2. **Hotswap sockets**: install on the *bottom* of the PCB
 3. **Power switch**: install on the *top* of the PCB. You may install it on the bottom if you prefer, but you will then have to adjust the case
-4. **Controller**: install on the *top* of the PCB. It is strongly recommended to socket your controller with sufficiently tall sockets so you can put the battery between the controller and the PCB. Be sure to align the labeled pins -- this means that on the left, the MCU will have the components on top, and on the right, the components will be facing down.
+4. **Controller**: install on the *top* of the PCB. It is strongly recommended to socket your controller with sufficiently tall sockets so you can put the battery between the controller and the PCB. Be sure to align the labeled pins -- this means that on the left, the MCU will have the components on top, and on the right, the components will be facing down. If you are not confident in determining the controller orientation, I suggest reviewing the [build tips](#mcu-orientation).
 5. **Reset button**: install on *top* of the PCB. You may install it on the bottom if you prefer, but you will then have to adjust the case
-6. **Battery jack**: install on *top* of the PCB. Note that you will only use 2 of the 3 through holes at any given time. Align the positive (+, conventionally red) terminal of your battery with the *center* hole of the footprint. Check the [build tips](#build-tips) for more detailed info. You may install this on the bottom if you prefer, etc etc
+6. **Battery jack**: install on *top* of the PCB. Note that you will only use 2 of the 3 through holes at any given time. Align the positive (+, conventionally red) terminal of your battery with the *center* hole of the footprint. Check the [build tips](#battery-jack-orientation) for more detailed info. You may install this on the bottom if you prefer, etc etc
 7. **FFC connector**: this footprint is only available on one side, so you don't have much of a choice 😅 
 
 > [!NOTE]
@@ -42,53 +42,7 @@ If anything from that abbreviated build order is unclear, expand the section bel
 
 <details>
 
-<summary>Expand for additional build tips and info</summary>
-
-### Parts overview
-
-Before getting started, here is a quick visual overview of the parts you should have ready to go:
-
-![parts-overview](img/parts-overview.jpg)
-
-###  Diode orientation
-
-The side of the diode with the line corresponds to the pad enclosed by a box on the silkscreen
-
-![diode-orientation](img/diode-orientation.jpg)
-
-### Battery jack orientation
-
-> [!WARNING]
-> I assume that red on your battery corresponds to (+) based on common conventions, but this is not guaranteed.
-> Before doing anything with your battery, you should [check the battery polarity with a multimeter](https://electronics.stackexchange.com/a/104377), and reverse the instructions below if necessary.
-
-The 3-holed footprint for the 2-pin component is to provide flexiblity in battery jack orientation.
-The red (+) wire of your battery will **always** go to the center hole, then you place the black (-) wire to whichever outer hole provides the most convenient orientation for you.  
-For example, for my left and right sides, I orient the jack as follows:
-
-![jst-left](img/jst-left.jpg)
-![jst-right](img/jst-right.jpg)
-
-### Socketing a controller
-
-filterpaper's [guide to socketing microcontrollers](https://filterpaper.github.io/socket-mcu.html) is nice and to the point. In a nutshell:
-
-1. Solder the sockets to the PCB
-2. Cover the sockets with kapton tape
-3. Insert pins by piercing through the tape
-4. Solder the MCU (be **very** careful to verify the MCU orientation at this point)
-5. Remove the MCU, remove the tape, then re-place the MCU in the sockets
-
-For step (1), a common challenge is making sure that the sockets are well aligned, vertically (i.e. pointing straight out of the hole, and not diagonally slanted).
-While tape can help, it isn't always sufficient or reliable.  
-I like to either use an extra set of sockets placed perpendicularly, or if you have one, an already-socketed MCU is great to force that vertical alignment:
-
-![socket-helper](img/socket-helper.jpg)
-
-For step (4), ensure that the labelled pins match between the PCB and the MCU.
-Adhering to this simple constraint will guarantee that you install it correctly, rather than trying to remember or interpret "face up" "components down" or some other phrase.
-
-TODO: image here
+<summary> Expand for general soldering tips</summary>
 
 ### Soldering SMD (surface mount) components
 
@@ -117,9 +71,74 @@ Basically:
 3. heat the pin **and** the hole
 4. feed solder to the heated pin/hole *not* directly to the iron -- this helps to make sure you adequately heated the part, to prevent a cold joint
 
+### Socketing a controller
+
+filterpaper's [guide to socketing microcontrollers](https://filterpaper.github.io/socket-mcu.html) is nice and to the point. In a nutshell:
+
+1. Solder the sockets to the PCB
+2. Cover the sockets with kapton tape
+3. Insert pins by piercing through the tape
+4. Solder the MCU (be **very** careful to verify the MCU orientation at this point). See the [MCU orientation](#mcu-orientation) tip section if you are not sure how to determine this.
+5. Remove the MCU, remove the tape, then re-place the MCU in the sockets
+
+For step (1), a common challenge is making sure that the sockets are well aligned, vertically (i.e. pointing straight out of the hole, and not diagonally slanted).
+While tape can help, it isn't always sufficient or reliable.  
+I like to either use an extra set of sockets placed perpendicularly, or if you have one, an already-socketed MCU is great to force that vertical alignment:
+
+![socket-helper](img/socket-helper.jpg)
+
 ### Drag soldering fine pitch components
 
-I've never actually done this lmao
+I've never actually done this yet! Maybe soon I will have tips based on first hand experience, but my general understanding is:
+
+1. Apply a flux to the pins
+2. Apply a blob of solder to the first pin
+3. Drag the blob across the pins
+4. Clean up any bridges
+
+</details>
+
+<details>
+
+<summary>Expand for menura-specific build tips and info</summary>
+
+### Parts overview
+
+Before getting started, here is a quick visual overview of the parts you should have ready to go:
+
+![parts-overview](img/parts-overview.jpg)
+
+###  Diode orientation
+
+The side of the diode with the line corresponds to the pad enclosed by a box on the silkscreen
+
+![diode-orientation](img/diode-orientation.jpg)
+
+### Battery jack orientation
+
+> [!WARNING]
+> I assume that red on your battery corresponds to (+) based on common conventions, but this is not guaranteed.
+> Before doing anything with your battery, you should [check the battery polarity with a multimeter](https://electronics.stackexchange.com/a/104377), and reverse the instructions below if necessary.
+
+The 3-holed footprint for the 2-pin component is to provide flexiblity in battery jack orientation.
+The red (+) wire of your battery will **always** go to the center hole, then you place the black (-) wire to whichever outer hole provides the most convenient orientation for you.  
+For example, for my left and right sides, I orient the jack as follows:
+
+![jst-left](img/jst-left.jpg)
+![jst-right](img/jst-right.jpg)
+
+### MCU orientation
+
+To verify the MCU orientation, use the labeled pins like GND, RST and VCC as reference points, and ensure that they will be aligned between the MCU and PCB.
+Adhering to this simple constraint will guarantee that you install it correctly, rather than trying to remember or interpret "face up", "components down" or some other phrase.
+
+I always like to use the consecutive ground pins as my reference point.
+Cross reference with the [nice!nano pinout diagram](https://nicekeyboards.com/docs/nice-nano/pinout-schematic/) to make sure you're reading the pin labels on your MCU correctly:
+
+![mcu-correct-components-up](img/mcu-correct-components-up.jpg)
+![mcu-correct-components-down](img/mcu-correct-components-down.jpg)
+![mcu-incorrect-flipped](img/mcu-incorrect-flipped.jpg)
+![mcu-incorrect-misaligned](img/mcu-incorrect-misaligned.jpg)
 
 </details>
 
