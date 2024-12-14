@@ -58,7 +58,7 @@ The side of the diode with the line corresponds to the pad enclosed by a box on 
 
 ### Battery jack orientation
 
-> ![WARNING]
+> [!WARNING]
 > I assume that red on your battery corresponds to (+) based on common conventions, but this is not guaranteed.
 > Before doing anything with your battery, you should [check the battery polarity with a multimeter](https://electronics.stackexchange.com/a/104377), and reverse the instructions below if necessary.
 
@@ -66,8 +66,8 @@ The 3-holed footprint for the 2-pin component is to provide flexiblity in batter
 The red (+) wire of your battery will **always** go to the center hole, then you place the black (-) wire to whichever outer hole provides the most convenient orientation for you.  
 For example, for my left and right sides, I orient the jack as follows:
 
-![jst-left](img/jst-left.png)
-![jst-right](img/jst-right.png)
+![jst-left](img/jst-left.jpg)
+![jst-right](img/jst-right.jpg)
 
 ### Socketing a controller
 
