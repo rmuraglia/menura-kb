@@ -19,12 +19,12 @@
 
 This is the order (and location) in which I like to install the components:
 
-1. **Diodes**: install these on the *bottom* of the PCB. The line on the diode should be closer to the pad enclosed by a silkscreen marking. If this is unclear, please check the [build tips](#diode-orientation) section below.
+1. **Diodes**: install these on the *bottom* of the PCB. The line on the diode should be closer to the pad enclosed by a silkscreen marking. If this is unclear, please check the [build tips](#build-tips) section below.
 2. **Hotswap sockets**: install on the *bottom* of the PCB
 3. **Power switch**: install on the *top* of the PCB. You may install it on the bottom if you prefer, but you will then have to adjust the case
-4. **Controller**: install on the *top* of the PCB. It is strongly recommended to socket your controller with sufficiently tall sockets so you can put the battery between the controller and the PCB. Be sure to align the labeled pins -- this means that on the left, the MCU will have the components on top, and on the right, the components will be facing down. If you are not confident in determining the controller orientation, I suggest reviewing the [build tips](#mcu-orientation).
+4. **Controller**: install on the *top* of the PCB. It is strongly recommended to socket your controller with sufficiently tall sockets so you can put the battery between the controller and the PCB. Be sure to align the labeled pins -- this means that on the left, the MCU will have the components on top, and on the right, the components will be facing down. If you are not confident in determining the controller orientation, I suggest reviewing the [build tips](#build-tips).
 5. **Reset button**: install on *top* of the PCB. You may install it on the bottom if you prefer, but you will then have to adjust the case
-6. **Battery jack**: install on *top* of the PCB. Note that you will only use 2 of the 3 through holes at any given time. Align the positive (+, conventionally red) terminal of your battery with the *center* hole of the footprint. Check the [build tips](#battery-jack-orientation) for more detailed info. You may install this on the bottom if you prefer, etc etc
+6. **Battery jack**: install on *top* of the PCB. Note that you will only use 2 of the 3 through holes at any given time. Align the positive (+, conventionally red) terminal of your battery with the *center* hole of the footprint. Check the [build tips](#build-tips) for more detailed info. You may install this on the bottom if you prefer, etc etc
 7. **FFC connector**: this footprint is only available on one side, so you don't have much of a choice 😅 
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Basically:
 1. place your component, and tape it in place if necessary
 2. flip the board so you can access the pins poking through the plated holes
 3. heat the pin **and** the hole
-4. feed solder to the heated pin/hole *not* directly to the iron -- this helps to make sure you adequately heated the part, to prevent a cold joint
+4. feed solder to the heated pin/hole, *not* directly to the iron -- this helps to make sure you adequately heated the part, to prevent a cold joint
 
 ### Socketing a controller
 
@@ -78,7 +78,7 @@ filterpaper's [guide to socketing microcontrollers](https://filterpaper.github.i
 1. Solder the sockets to the PCB
 2. Cover the sockets with kapton tape
 3. Insert pins by piercing through the tape
-4. Solder the MCU (be **very** careful to verify the MCU orientation at this point). See the [MCU orientation](#mcu-orientation) tip section if you are not sure how to determine this.
+4. Solder the MCU (be **very** careful to verify the MCU orientation at this point). See the "MCU orientation" section in the next tip group if you are not sure how to determine this.
 5. Remove the MCU, remove the tape, then re-place the MCU in the sockets
 
 For step (1), a common challenge is making sure that the sockets are well aligned, vertically (i.e. pointing straight out of the hole, and not diagonally slanted).
