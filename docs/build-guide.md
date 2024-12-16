@@ -27,13 +27,17 @@ This is the order (and location) in which I like to install the components:
 6. **Battery jack**: install on *top* of the PCB. Note that you will only use 2 of the 3 through holes at any given time. Align the positive (+, conventionally red) terminal of your battery with the *center* hole of the footprint. Check the [build tips](#build-tips) for more detailed info. You may install this on the bottom if you prefer, etc etc
 7. **FFC connector**: this footprint is only available on one side, so you don't have much of a choice 😅 
 
+Your completed menura PCBs should look something like this, with some minor caveats -- I skipped step (7), and on the left I installed some pin headers for testing vik with the through hole breakouts.
+
+![menura-pcb-top.jpg](img/menura-pcb-top.jpg)
+![menura-pcb-bottom.jpg](img/menura-pcb-bottom.jpg)
+
 > [!NOTE]
 > The power switch's ON position is when it is toggled closer to the side with only one pad.
 > This means that if you follow the suggestion to install the power switches on the top of the PCB, then the ON positon will correspond to toggling the switch to the LEFT.  
 > Yes, this is kind of counter-intuitive and regrettable.  
 > No, I did not think of this when designing it.
-
-![power-switch](img/power-switch.jpg)
+> ![power-switch](img/power-switch.jpg)
 
 ## Build tips
 
