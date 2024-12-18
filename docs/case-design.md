@@ -137,10 +137,32 @@ For chunkier toggles, you may want to be more precise here.
 
 ## Magnet holes
 
-6.9 magnet midpoint from top ((7+6.8)/2)
-chamfer good
-extra space at bottom not needed (undercut)
-8mm magnet -> 7.95mm hex https://discord.com/channels/939959680611020840/1054306614158557214/1308157606388437072
+For the magnet holes, I received a few tips, based on [this model](https://github.com/VoronDesign/Voron-Tap/blob/29e900094a0f094aad88493c76ec5a6d39f94812/STLs/Tap_Center_left_r8.stl) and this discord [conversation](https://discord.com/channels/939959680611020840/1054306614158557214/1308157606388437072):
+
+1. For circular magnets, instead of attempting to fit it exactly to a circular hole, use a slightly undersized circumscribed hexagonal hole instead. This will give you a good combination of flex and relief, giving you the best fit possible with some printing tolerance
+    - For 8mm magnets, I found a 7.95mm diameter hole to work well (any bigger was too loose)
+    - For 5mm magnets, I found a 4.95 diameter hole to have mixed success.
+        - In the wedge piece, it worked great, but in the case piece it was too tight. This may be due to different body rigidities and different amounts of Z-axis squishing during printing.
+2. Add a small undercut at the bottom of the hole to deal with printing artifacts in inside corners.
+    - note that in practice, I did not find this tip to be necessary for my magnets (proabbly because they are thinner than the advertised thickness, so they didn't need to be seated totally flush in the hole)
+
+Separately, [this video](https://youtu.be/Bd7Yyn61XWQ) had some good tips on printing holes, the main one that I used was adding a chamfer to the hole to help guide a part for insertion.
+I used a **0.4mm chamfer**, which seemed to work well.
+
+And lastly, in addition to relief via the hex shape, I added a 1.5mm tall slot running across the magnets to serve as both extra relief, and also as a channel where I could insert tweezers to pry out misplaced magnets (e.g. in the wrong orientation).
+
+Specific to my case, I chose [8x2mm magnets](https://www.amazon.com/gp/product/B09BB1VT4J/), as I thought those would conveniently embed into my 3mm thick case wall.  
+I wanted to ensure that the magnet was mostly embedded in a portion of the wall that was 3mm thick, and not a portion that was thinner due to the shadow line overhangs.  
+This meant that I set the magnet midpoint to be **6.9mm from the top of the case**, from (7 (upwards extrude) + 6.8 (inner + middle wall downwards extrude))/2.
+
+Finally, again, specific to my case, I spaced the magnets out as shown below (unscientifically):
+For the longer edge, I put one magnet in the center, then offset centers by 13mm for even spacing:
+
+![sketch-mag1](img/sketch-mag1.png)
+
+For the shorter edge, the magnets are a set a bit more arbitrarily to work around the vik slot:
+
+![sketch-mag2](img/sketch-mag2.png)
 
 ## Cosmetics
 
@@ -164,3 +186,22 @@ Some values for reference (unscientifically chosen):
 - 1mm around the usb port cutout
 
 # Center wedge
+
+To create the center wedge, there are two main levers:
+
+1. the angle between the halves
+2. the distance between the halves
+
+This seems like it would be well suited to [parametric modeling](https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-76272551-3275-46C4-AE4D-10D58B408C20) but in practice, I wouldn't get this to scale/regenerate assets well.
+
+In general my procedure was:
+
+1. Import a basic sketch of the case outline (e.g. the bottom plate should be sufficient, as long as it accounts for the added wall thickness)
+2. Rotate the outline by half of the desired split angle (e.g. for ffkb or bad wings, this is 15 degrees)
+3. Draw a vertical line that's horizontally offset to half of the desired spacing (use a sketch dimension)
+4. Move/copy the outline as a rotation about that line to create a mirrored copy of the outline
+5. Connect lines across the mirrored copy and original to create a closed face in the middle.
+6. If necessary, draw features in that center face (e.g. display or trackpad slot)
+7. Extrude the face to a total height of 16.6mm
+8. Create magnet cutouts to match those in the case
+9. If necessary, create vik slot aligned to that from the case, hollow out body to make room for accessory PCB and components
