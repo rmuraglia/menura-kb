@@ -101,6 +101,8 @@ Luckily, the ergogen config already has these rendered in the sketch, so all we 
 
 ### USB port
 
+![sketch-usb](img/sketch-usb.png)
+
 1. Project a line from the MCU outline to know where the cutout should be centered
 2. We know that the top of the USB port *should* be 1.6 to 2 mm from the top of the case (based on the case thickness + 0.4 buffer we allowed)
 3. So we start the cutout at **1.2mm from the top** of the case to give a bit more breathing room
@@ -108,6 +110,8 @@ Luckily, the ergogen config already has these rendered in the sketch, so all we 
 5. Then we see the projected line is *18mm* long, and we want our cutout to be centered along that. We want the cutout to be **12mm wide** (again from other designs), so we start the cutout **3mm offset from the end** of the projected line
 
 ### Power switch
+
+![sketch-pwr](img/sketch-pwr.png)
 
 1. The power switch sits on top of the PCB, so we first make a reference line 10.4mm from the top of the case for the top of the PCB: 7 from top of case to switchplate bottom + 5 for switchplate top to pcb top - 1.6 for switchplate thickness
 2. The projected line is 8.8mm wide, and we want our power switch cutout slot to be constructed as a center-to-center slot, with a 4mm wide distance between centers, so we measure a horizontal offset of 2.4mm
@@ -124,6 +128,8 @@ For chunkier toggles, you may want to be more precise here.
 2. The only change is that instead of using the full footprint's width (9mm), we just make the cutout 6mm wide, which is the width of the button itself, so we offset horizontally by 1.5mm on one side.
 
 ### Vik cable
+
+![sketch-vik](img/sketch-vik.png)
 
 1. The vik cable will be roughly aligned with the top of the PCB, so the cutout will be centered **10.4mm from the top** of the case. (7 from top of case to switchplate bottom + 5 for switchplate top to pcb top - 1.6 for switchplate thickness)
 2. The FFC cable slit will be **7mm wide and 1mm tall**
