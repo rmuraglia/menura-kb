@@ -18,9 +18,11 @@ My general approach was going to follow the same general case design composed of
 Base measurements:
 
 - PCB and plate thickness: 1.6mm
-- hotswap socket: 1.8mm
+- hotswap socket thickness: 1.8mm
 - switch bottom to housing to top of clip point: 5mm (from [cherry switch diagram](https://www.cherry.de/en-gb/gaming/developer))
 - PCB bottom to USB top: 10mm (on left side, where USB is taller -- this is the tallest component which will determine the overall height)
+
+![cherry-switch-dimensions](img/MX-switch-dims.svg)
 
 In general, this integrated plate design suggests that using the bottom of the switch plate as the vertical "origin" from which we will determine relative measurements makes sense.
 
@@ -29,13 +31,14 @@ Derived measurements:
 - switch plate top to usb top: 3.4 (10 - 1.6 - 5)
 - switch plate bottom to usb top: 5 (3.4 + 1.6)
 - mcu hollowed out area: 5.4 (5 + 0.4 buffer) to 7 (+1.6 wall thickness)
-    - important +7 is the max height
+    - important: +7 is the max height
+    - note that the 0.4 buffer sounds small, but really the height of the usb port (with magnetic tip) is much more than the mcu board itself, so this should be plenty
 - switch plate top to bottom of sockets: 6.8 (5 - 1.6 (housing minus plate thickness) + 1.6 (pcb) + 1.8 (sockets))
     - note: Sadek's case guide suggests 8 mm as a safe height for MX hotswap
 
 ## Shadow line
 
-This [hackaday article](https://hackaday.com/2023/08/07/enhance-your-enclosures-with-a-shadow-line/) gives a good overview of shadow lines, but the concept is that you use mating pieces, such that on the inside, the parts are flush, but on the outside there is a small gap -- this gap, backed by the flush pieces gives a better appearance of uniformity at the seam, compared to just attempted to get the outermost walls flush with each other.
+This [hackaday article](https://hackaday.com/2023/08/07/enhance-your-enclosures-with-a-shadow-line/) gives a good overview of shadow lines, but the concept is that you use mating pieces, such that on the inside, the parts are flush, but on the outside there is a small gap -- this gap, backed by the flush pieces gives a better appearance of uniformity at the seam, compared to just attempting to get the outermost walls flush with each other.
 
 ![shadow-line](img/shadow-line.png)
 
@@ -52,7 +55,8 @@ The measurements I ended up choosing were as follows:
 - vertical mating notch (D): 1.2 (0.4 gap + 0.8 step)
 
 To minimize repeated manual work in fusion (offsetting curves in sketches), I added outlines for these additional wall thicknesses to my ergogen config (see `(board|shadow)_(inner|outer)_wall`).  
-These outlines are all generated with no fillet, to help fusion import gapless DXFs that require minimal fixing.
+These outlines are all generated with no fillet, to help fusion import gapless DXFs that require minimal fixing.  
+Note that this lack of filleting in the ergogen stage will come back to bite us in the [cosmetics](#cosmetics) section, so be sure to check that out.
 
 # Fusion
 
@@ -97,11 +101,33 @@ Luckily, the ergogen config already has these rendered in the sketch, so all we 
 
 ### USB port
 
+1. Project a line from the MCU outline to know where the cutout should be centered
+2. We know that the top of the USB port *should* be 1.6 to 2 mm from the top of the case (based on the case thickness + 0.4 buffer we allowed)
+3. So we start the cutout at **1.2mm from the top** of the case to give a bit more breathing room
+4. Then we know we want the cutout to be **8mm tall**, just from other designs -- this gives room for the chunky magnetic tip, and gives some vertical allowance for the flipped MCU on the right/left sides which influences the USB port mounting
+5. Then we see the projected line is *18mm* long, and we want our cutout to be centered along that. We want the cutout to be **12mm wide** (again from other designs), so we start the cutout **3mm offset from the end** of the projected line
+
 ### Power switch
+
+1. The power switch sits on top of the PCB, so we first make a reference line 10.4mm from the top of the case for the top of the PCB: 7 from top of case to switchplate bottom + 5 for switchplate top to pcb top - 1.6 for switchplate thickness
+2. The projected line is 8.8mm wide, and we want our power switch cutout slot to be constructed as a center-to-center slot, with a 4mm wide distance between centers, so we measure a horizontal offset of 2.4mm
+3. The slot is vertically centered 0.75mm above the top of the PCB (I honestly don't remember why, this is probably the half the thickness of the power switch)
+4. Finally, we create the slot based on those centers, with a slot height of 3mm, giving us two 1.5mm radius semi circles on the ends.
+
+For the power switch, we additionally create a second cutout in the wall to create a channel for the protruding switch to go through during PCB insertion to the case.  
+In this case, the actual toggle switch is small, so we just arbitrarily cutout the width of the rectangular portion of the slot up to the midpoint of the wall thickness.
+For chunkier toggles, you may want to be more precise here.
 
 ### Reset button
 
+1. For this, we are actually making a cutout in the plane of the component's sketch, so it is really simple
+2. The only change is that instead of using the full footprint's width (9mm), we just make the cutout 6mm wide, which is the width of the button itself, so we offset horizontally by 1.5mm on one side.
+
 ### Vik cable
+
+1. The vik cable will be roughly aligned with the top of the PCB, so the cutout will be centered **10.4mm from the top** of the case. (7 from top of case to switchplate bottom + 5 for switchplate top to pcb top - 1.6 for switchplate thickness)
+2. The FFC cable slit will be **7mm wide and 1mm tall**
+3. The reference projected line from the footprint is 11mm long, so we offset by 2mm on the side
 
 ## Magnet holes
 
@@ -112,6 +138,23 @@ extra space at bottom not needed (undercut)
 
 ## Cosmetics
 
-Fillet, chamfer
+### Fillets
+
+Recall that the outline of the PCB is filleted with a value of 5 in ergogen, but the exported outlines for the case are not.
+You will want to recreate this fillet.  
+For outer corners, and corners part of the outer shadow line wall, use the same 5mm value.  
+For corners part of the inner shadow line wall (where the PCB would actually contact the case), use a smaller 2mm value.
+
+In theory, I feel like 5mm should be fine for all of these, but in practice, 5mm on the inner walls added too much material and made the PCB rub against the case.
+
+### Chamfers
+
+I used chamfers to just make the edges of the case less severe.
+Some values for reference (unscientifically chosen):
+
+- 1.5mm along the top edge of the case
+- 0.4mm around the reset button cutout
+- 0.5mm around the power switch cutout
+- 1mm around the usb port cutout
 
 # Center wedge
