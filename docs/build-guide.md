@@ -185,12 +185,37 @@ Cross reference with the [nice!nano pinout diagram](https://nicekeyboards.com/do
 
 ## Studio
 
-Default firmware ships with ZMK studio so you can make changes in the fly from a UI, but...
-together they have a combo to unlock studio
-each half has a combo to access the bootloader
+The firmware included with the [releases](https://github.com/rmuraglia/menura-kb/releases) support [ZMK studio](https://zmk.dev/docs/features/studio) for easy UI-based keymap configuration without requiring building or flashing new firmware to your keyboard.
+If you are more familiar with QMK, ZMK studio is analogous to Vial for QMK.
 
-https://github.com/rmuraglia/zmk-keyboards-menura/blob/main/boards/shields/menura/menura.keymap
+The stock keymap looks like this:
+
+![studio](img/studio.png)
+
+This keymap is only really intended for testing that all switch positions are functioning appropriately.  
+When you are ready to customize your layout, the `&studio_unlock` binding is triggered by pressing four keys simultaneously:
+
+- for layouts with 3 keys in the pinky columns, this will be the top two pinky keys on each side. Assuming the stock layout, this will be the Q, A, P and ; keys
+- for layouts with 2 keys in the pinky columns, this will be all four pinky keys
+
+Once you are in the studio UI, you can remap keys, add layers, and even change the layout.
+The screenshot above shows the available layouts in the drop down menu.
 
 ## ZMK config
 
-If you want to roll your own config...
+If you want to create your own ZMK config and define your keymap in code, the [menura shield definition](https://github.com/rmuraglia/zmk-keyboards-menura) is accessible as a [ZMK module](https://zmk.dev/docs/features/modules).  
+This means you only need to add the menura module to your projects list in your `west.yml`, then the menura shield will be available to your builds.
+
+For a tangible example, here's how my `zmk-config` uses the menura module:
+
+- first I [add a new remote](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/config/west.yml#L15-L16) for the menura repo's github url base
+- then I [add the menura project](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/config/west.yml#L35-L37). note that I use a non-main revision, but that's for testing something unrelated -- you should use the main branch
+- then under [`zmk-config/config/`](https://github.com/rmuraglia/zmk-config/tree/8d228a5c4ef68459f12914036d7ad219430e42fd/config) I add my menura keymap and conf files
+- finally, I add the menura to my [github actions build list](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/build.yaml#L31-L34)
+
+To enter the bootloader for flashing firmware, you can quickly double tap the reset button, but if that's inaccessible or inconvenient, the stock keymap from the previous section also provides a 4-key combo for entering the bootloader on each half.  
+Similarly to the `&studio_unlock` combo:
+
+- for layouts with 3 keys in the pinky column and 3 keys in the inner index column, the will be the top two keys in those columns. Assuming the stock layout, this will be Q, A, T, G for the left side and Y, H, P, ; on the right.
+- for layouts with 2 keys in those columns, this will be all four keys in those columns
+- for anything in between, you can figure it out -- use the top 2 keys that are available in any given column

@@ -144,7 +144,7 @@ For the magnet holes, I received a few tips, based on [this model](https://githu
     - For 5mm magnets, I found a 4.95 diameter hole to have mixed success.
         - In the wedge piece, it worked great, but in the case piece it was too tight. This may be due to different body rigidities and different amounts of Z-axis squishing during printing.
 2. Add a small undercut at the bottom of the hole to deal with printing artifacts in inside corners.
-    - note that in practice, I did not find this tip to be necessary for my magnets (proabbly because they are thinner than the advertised thickness, so they didn't need to be seated totally flush in the hole)
+    - note that in practice, I did not find this tip to be necessary for my magnets (probably because they are thinner than the advertised thickness, so they didn't need to be seated totally flush in the hole)
 
 Separately, [this video](https://youtu.be/Bd7Yyn61XWQ) had some good tips on printing holes, the main one that I used was adding a chamfer to the hole to help guide a part for insertion.
 I used a **0.4mm chamfer**, which seemed to work well.
