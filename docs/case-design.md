@@ -202,6 +202,6 @@ In general my procedure was:
 4. Move/copy the outline as a rotation about that line to create a mirrored copy of the outline
 5. Connect lines across the mirrored copy and original to create a closed face in the middle.
 6. If necessary, draw features in that center face (e.g. display or trackpad slot)
-7. Extrude the face to a total height of 16.6mm
-8. Create magnet cutouts to match those in the case
+7. Extrude the face to a total height of 16.6mm (1.6 bottom plate thickness + 8mm to switch plate bottom + 7 switch plate bottom to top)
+8. Create magnet cutouts to match those in the case (magnet center is 6.9mm from top)
 9. If necessary, create vik slot aligned to that from the case, hollow out body to make room for accessory PCB and components

@@ -165,6 +165,12 @@ Cross reference with the [nice!nano pinout diagram](https://nicekeyboards.com/do
 
 ## Assembly
 
+This is where menura shines!
+With one built PCB, you have the flexibility to choose between multiple layouts at assembly time, ranging from a 3x5+3 to a 23332+2 hummingbird.
+
+Case files are published in the repo, under [`case/stl`](https://github.com/rmuraglia/menura-kb/tree/main/case/stl), with step files or fusion project files one directory above, if you prefer that format, or want to make tweaks to the case.  
+Choose one (or more) `top_*` files, and experiment with different layouts!
+
 > [!WARNING]
 > Before installing the PCB into a case, it is highly recommended to [flash a test firmware](#studio) and verify that everything is working as expected
 
@@ -211,6 +217,7 @@ For a tangible example, here's how my `zmk-config` uses the menura module:
 - first I [add a new remote](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/config/west.yml#L15-L16) for the menura repo's github url base
 - then I [add the menura project](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/config/west.yml#L35-L37). note that I use a non-main revision, but that's for testing something unrelated -- you should use the main branch
 - then under [`zmk-config/config/`](https://github.com/rmuraglia/zmk-config/tree/8d228a5c4ef68459f12914036d7ad219430e42fd/config) I add my menura keymap and conf files
+    - note that if you are using a layout other than the default 3x5+3, you may want to declare a [chosen node](https://github.com/rmuraglia/zmk-keyboards-menura/blob/main/boards/shields/menura/menura.dtsi#L146-L149) with the appropriate layout, like `&menura_23332_2_layout`.
 - finally, I add the menura to my [github actions build list](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/build.yaml#L31-L34)
 
 To enter the bootloader for flashing firmware, you can quickly double tap the reset button, but if that's inaccessible or inconvenient, the stock keymap from the previous section also provides a 4-key combo for entering the bootloader on each half.  
