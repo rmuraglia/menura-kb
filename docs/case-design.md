@@ -187,17 +187,17 @@ Some values for reference (unscientifically chosen):
 
 # Center wedge
 
-To create the center wedge, there are two main levers:
+To create the center wedge, there are two main levers that are captured in the file name:
 
-1. the angle between the halves
-2. the distance between the halves
+1. the angle between a piece and the vertical
+2. the distance between the top of halves
 
 This seems like it would be well suited to [parametric modeling](https://help.autodesk.com/view/fusion360/ENU/?guid=GUID-76272551-3275-46C4-AE4D-10D58B408C20) but in practice, I wouldn't get this to scale/regenerate assets well.
 
 In general my procedure was:
 
 1. Import a basic sketch of the case outline (e.g. the bottom plate should be sufficient, as long as it accounts for the added wall thickness)
-2. Rotate the outline by half of the desired split angle (e.g. for ffkb or bad wings, this is 15 degrees)
+2. Rotate the outline by the desired split angle (e.g. for ffkb or bad wings, this is 15 degrees from the vertical, so the halves are 30 degrees from each other)
 3. Draw a vertical line that's horizontally offset to half of the desired spacing (use a sketch dimension)
 4. Move/copy the outline as a rotation about that line to create a mirrored copy of the outline
 5. Connect lines across the mirrored copy and original to create a closed face in the middle.
