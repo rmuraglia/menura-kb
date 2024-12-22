@@ -206,3 +206,5 @@ In general my procedure was:
 8. Create magnet cutouts to match those in the case (magnet center is 6.9mm from top)
 9. If necessary, create vik slot aligned to that from the case, hollow out body to make room for accessory PCB and components
 10. Chamfer the top edge to match the case (1.5mm)
+
+Note to future self: the first wedge I made (15 deg, 18mm) was actually defined by a 4mm distance on the bottom of the wedge, so the 18mm is not quite right (it is more like 18.5).
