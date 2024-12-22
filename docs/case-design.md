@@ -205,3 +205,4 @@ In general my procedure was:
 7. Extrude the face to a total height of 16.6mm (1.6 bottom plate thickness + 8mm to switch plate bottom + 7 switch plate bottom to top)
 8. Create magnet cutouts to match those in the case (magnet center is 6.9mm from top)
 9. If necessary, create vik slot aligned to that from the case, hollow out body to make room for accessory PCB and components
+10. Chamfer the top edge to match the case (1.5mm)
