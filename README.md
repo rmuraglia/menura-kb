@@ -49,3 +49,11 @@ Menura in 30 key configuration: ![menura-30key](img/30-key.png)
 - slide-on wedge case and center wedge
 - magnet case and wedge
 - "tenting leg" hole case and wedge
+
+- kicanvas links
+- firmware link
+- photos in the readme
+    - PCB
+    - glamour shots of assembled builds
+    - examples of wedges
+    - examples of layouts

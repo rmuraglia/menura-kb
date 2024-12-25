@@ -1,2 +1,5 @@
 - the `raw` directory contains dxf exports from ergogen as is
 - the `cleaned` directory contains dxf exports from fusion after I've done some minor clean up and modification (closing gaps in outlines, trimming internal lines, extending lines to section off areas that I want to treat as different faces)
+- the `components` directory contains dxfs for components (e.g. cirque trackpad) or other reusable portions (e.g. magnet cutouts) from the designs
+    - the `cirque` dxf is derived from the [bad wings v1 step case file](https://github.com/hazels-garage/bad-wings/tree/master/v1/cases/original)
+    - the magnets are named as `magnet-${diameter}-${edge}`, where the edge is either the shorter or longer edge of the case where the magnets will be embedded
