@@ -165,7 +165,7 @@ Cross reference with the [nice!nano pinout diagram](https://nicekeyboards.com/do
 
 ## Assembly
 
-This is where menura shines!
+This is where the menura shines!
 With one built PCB, you have the flexibility to choose between multiple layouts at assembly time, ranging from a 3x5+3 to a 23332+2 hummingbird.
 
 Case files are published in the repo, under [`case/stl`](https://github.com/rmuraglia/menura-kb/tree/main/case/stl), with step files or fusion project files one directory above, if you prefer that format, or want to make tweaks to the case.  
