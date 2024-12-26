@@ -15,7 +15,7 @@ The menura is named for the [lyrebird](https://en.wikipedia.org/wiki/Lyrebird) (
 
 # Design goals
 
-The primary design goal was to create a PCB that would allow you to seamlessly switch between and try out many layouts, gradually reducing your keycount from a 3x5+3 layout like on the [sweep36](https://github.com/sadekbaroudi/sweep36), to 3x5+2 like the [sweep](https://github.com/davidphilipbarr/Sweep), then eventually a 23332+2 like the [hummingbird](https://github.com/PJE66/hummingbird).  
+The primary design goal was to create a PCB that would allow you to seamlessly switch between and try out many layouts, gradually reducing your keycount from a 3x5+3 layout like on the [5 column ffkb](https://fingerpunch.xyz/product-tag/ffkb/), to 3x5+2 like the [sweep](https://github.com/davidphilipbarr/Sweep), then eventually a 23332+2 like the [hummingbird](https://github.com/PJE66/hummingbird).  
 In parallel to the keycount flexibility, I also wanted it to be easy to try out both a true split layout as well as unibody layouts ranging from the aggressively angled like the [barobord](https://github.com/sadekbaroudi/barobord) to more relaxed angles like the [duet](https://github.com/zzeneg/duet).
 
 To accomplish this goal, the menura has two key features:
@@ -68,4 +68,4 @@ Other boards I studied on the kicad side include the vulpes minora, urchin, [tem
 
 # Thanks
 
-I'd like to thank the members of the [fingerpunch](https://discord.gg/ewS6xbCgPb) discord community, especially Hazel who (unwillingly) taught me everything I know, Saixos and bravekarma for teaching me how to do things right (even if I usually ignored their suggestions), and reeve, damselfly, Yingeling and PyntieHet for celebrating every small step along the way and encouraging me to finish the project.
+I'd like to thank the members of the [fingerpunch discord](https://discord.gg/ewS6xbCgPb) community, especially Hazel who (unwillingly) taught me everything I know, Saixos and bravekarma for teaching me how to do things right (even if I usually ignored their suggestions), and reeve, damselfly, Yingeling and PyntieHet for celebrating every small step along the way and encouraging me to finish the project.
