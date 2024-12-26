@@ -53,7 +53,8 @@ To build your own menura:
 2. Follow the [build guide](/docs/build-guide.md) to:
     1. Solder the PCB
     2. Assemble the case, using a case printed from the [`case/`](/case/) directory
-3. Write and flash your own ZMK firmware, using the [menura shield module](https://github.com/rmuraglia/zmk-keyboards-menura). The ZMK docs has a page on [modules](https://zmk.dev/docs/features/modules), if you don't know how to use the module
+3. Flash the [ZMK studio](https://zmk.dev/docs/features/studio) ready firmware from the [releases](https://github.com/rmuraglia/menura-kb/releases) section of this repo for testing and basic keymap customization
+4. If needed (for advanced keymap configuration), write and flash your own ZMK firmware, using the [menura shield module](https://github.com/rmuraglia/zmk-keyboards-menura). The ZMK docs has a page on [modules](https://zmk.dev/docs/features/modules), for more details on using modules
 
 If you want to quickly inspect the PCB or schematic to debug something or further understand the design, you can quickly view these in browser with kicanvas: [menura in kicanvas](https://kicanvas.org/?github=https://github.com/rmuraglia/menura-kb/blob/main/pcb/menura.kicad_pro).  
 Tip: in the pcb view, within the sidebar's objects section (with the triangle, circle and square icon), you can turn the slider for "zones" all the way down to stop displaying the ground fill to better see the traces and footprints. 
