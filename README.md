@@ -69,4 +69,4 @@ Other boards I studied on the kicad side include the vulpes minora, urchin, [tem
 
 # Thanks
 
-I'd like to thank the members of the [fingerpunch discord](https://discord.gg/ewS6xbCgPb) community, especially Hazel who (unwillingly) taught me everything I know, Saixos and bravekarma for teaching me how to do things right (even if I usually ignored their suggestions), and reeve, damselfly, Yingeling and PyntieHet for celebrating every small step along the way and encouraging me to finish the project.
+I'd like to thank the members of the [fingerpunch discord](https://discord.gg/ewS6xbCgPb) community, especially @jasonhazel who (unwillingly) taught me everything I know, @Nick-Munnich and @caksoylar for trying to teach me how to do things right (even if I usually ignored their suggestions), and @grassfedreeve, @thazhemadam, @ykz89 and @PyntieHet for celebrating every small step along the way and encouraging me to finish the project.
