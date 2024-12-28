@@ -426,6 +426,27 @@ outlines:
     - case_bottom
     - ^_plate_3x5_2_switches
     - ^_plate_3x5_2_keycaps
+  _plate_33332_3_switches:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - matrix_common
+        - pinky_3x5
+        - inner_bird
+        - 3thumb
+  _plate_33332_3_keycaps:
+    - what: rectangle
+      bound: true
+      size: [kx + keycap_padding, ky + keycap_padding]
+      where:
+        - matrix_common
+        - pinky_3x5
+        - inner_bird
+        - 3thumb
+  case_plate_33332_3:
+    - case_bottom
+    - ^_plate_33332_3_switches
+    - ^_plate_33332_3_keycaps
 pcbs:
   menura:
     outlines:
