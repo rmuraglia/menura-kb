@@ -66,7 +66,8 @@ The layouts the menura attempts to mimic include the [ffkb](https://fingerpunch.
 
 On the design side, I learned a ton on the ergogen side from the [nostrum](https://github.com/bennytrouser/nostrum), [trochilidae](https://github.com/jcmkk3/trochilidae) (rufous and berylline), and [corax](https://github.com/dnlbauer/corax-keyboard) configs, as well as [flatfootfox's guide](https://flatfootfox.com/ergogen-introduction/).  
 Other boards I studied on the kicad side include the vulpes minora, urchin, [temper](https://github.com/raeedcho/temper) and [klotz](https://github.com/GEIGEIGEIST/KLOTZ).
+zzeneg's [zzkeeb](https://github.com/zzeneg/zzkeeb) library was critical in helping me cut through the endless options for kicad footprints to find an organized and curated set to start with.
 
 # Thanks
 
-I'd like to thank the members of the [fingerpunch discord](https://discord.gg/ewS6xbCgPb) community, especially Hazel who (unwillingly) taught me everything I know, Saixos and bravekarma for teaching me how to do things right (even if I usually ignored their suggestions), and reeve, damselfly, Yingeling and PyntieHet for celebrating every small step along the way and encouraging me to finish the project.
+I'd like to thank Sadek Baroudi and the members of the [fingerpunch discord](https://discord.gg/ewS6xbCgPb) community, especially Hazel who (unwillingly) taught me everything I know, Saixos and bravekarma for teaching me how to do things right (even if I usually ignored their suggestions), and reeve, damselfly, Yingeling and PyntieHet for celebrating every small step along the way and encouraging me to finish the project.
