@@ -207,6 +207,9 @@ When you are ready to customize your layout, the `&studio_unlock` binding is tri
 Once you are in the studio UI, you can remap keys, add layers, and even change the layout.
 The screenshot above shows the available layouts in the drop down menu.
 
+Note that when you load up studio, the top pinky keys may appear blank or different -- this is because they are actually tap dances used for entering the bootloader if you want to flash custom firmware (see the ZMK config section below for more information).
+Be cautious in remapping these keys if you plan on going that route down the line, and do not have easy access to your physical reset button.
+
 ## ZMK config
 
 If you want to create your own ZMK config and define your keymap in code, the [menura shield definition](https://github.com/rmuraglia/zmk-keyboards-menura) is accessible as a [ZMK module](https://zmk.dev/docs/features/modules).  
@@ -220,9 +223,5 @@ For a tangible example, here's how my `zmk-config` uses the menura module:
     - note that if you are using a layout other than the default 3x5+3, you may want to declare a [chosen node](https://github.com/rmuraglia/zmk-keyboards-menura/blob/main/boards/shields/menura/menura.dtsi#L146-L149) with the appropriate layout, like `&menura_23332_2_layout`.
 - finally, I add the menura to my [github actions build list](https://github.com/rmuraglia/zmk-config/blob/8d228a5c4ef68459f12914036d7ad219430e42fd/build.yaml#L31-L34)
 
-To enter the bootloader for flashing firmware, you can quickly double tap the reset button, but if that's inaccessible or inconvenient, the stock keymap from the previous section also provides a 4-key combo for entering the bootloader on each half.  
-Similarly to the `&studio_unlock` combo:
+To enter the bootloader for flashing firmware, you can quickly double tap the reset button, but if that's inaccessible or inconvenient, the stock keymap from the previous section also provides a [tap dance](https://zmk.dev/docs/keymaps/behaviors/tap-dance) for entering the bootloader on each half: simply mash the top pinky key (Q or P, conventionally) three times within 250 ms.
 
-- for layouts with 3 keys in the pinky column and 3 keys in the inner index column, the will be the top two keys in those columns. Assuming the stock layout, this will be Q, A, T, G for the left side and Y, H, P, ; on the right.
-- for layouts with 2 keys in those columns, this will be all four keys in those columns
-- for anything in between, you can figure it out -- use the top 2 keys that are available in any given column
