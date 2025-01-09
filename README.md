@@ -1,6 +1,6 @@
 # menura
 
-![menura-build-collage](docs/img/menura-collage.png)
+![menura-build-collage](docs/img/menura-collage-vertical.png)
 
 The menura is a 30 to 36 key wireless split MX keyboard compatible with the [VIK standard](https://github.com/sadekbaroudi/vik) for modular peripheral device support.
 
