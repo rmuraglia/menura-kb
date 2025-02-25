@@ -295,6 +295,19 @@ outlines:
     - what: outline
       name: _board
       fillet: 2
+  _all_switches_main:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - matrix_common
+        - 3thumb
+        - /.*_3x5/
+  _all_switches_alt:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - 2thumb
+        - inner_bird
   preview_36:
     - _pcb
     - ^_preview_keys36
@@ -346,6 +359,12 @@ outlines:
     - what: rectangle
       size: [jst_x, jst_y]
       where: jst
+  byo_case_all:
+    - _pcb
+    - ^_case_components
+    - ^_mounting_holes
+    - ^_all_switches_main
+    - ^_all_switches_alt
   case_bottom:
     - _board_outlines
     - ^_mounting_screws
@@ -447,6 +466,34 @@ outlines:
     - case_bottom
     - ^_plate_33332_3_switches
     - ^_plate_33332_3_keycaps
+  _plate_23333_3_switches:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - matrix_common
+        - inner_3x5
+        - 3thumb
+  byo_case_23333_3:
+    - _pcb
+    - ^_case_components
+    - ^_mounting_holes
+    - ^_plate_23333_3_switches
+  _plate_grumpy_switches:
+    - what: rectangle
+      size: sw_hole
+      where:
+        - matrix_pinky_bottom
+        - matrix_pinky_home
+        - /matrix_ring_.*/
+        - /matrix_middle_.*/
+        - /matrix_index_.*/
+        - inner_bird
+        - thumbs_home_cluster
+  byo_case_grumpy:
+    - _pcb
+    - ^_case_components
+    - ^_mounting_holes
+    - ^_plate_grumpy_switches
 pcbs:
   menura:
     outlines:
