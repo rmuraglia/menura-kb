@@ -473,6 +473,18 @@ outlines:
         - matrix_common
         - inner_3x5
         - 3thumb
+  _plate_23333_3_keycaps:
+    - what: rectangle
+      bound: true
+      size: [kx + keycap_padding, ky + keycap_padding]
+      where:
+        - matrix_common
+        - inner_3x5
+        - 3thumb
+  case_plate_23333_3:
+    - case_bottom
+    - ^_plate_23333_3_switches
+    - ^_plate_23333_3_keycaps
   byo_case_23333_3:
     - _pcb
     - ^_case_components
